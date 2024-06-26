@@ -1,0 +1,247 @@
+@import url(fonts.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    ---azul_escuro:#3E3C4C;
+    ---azul-bebe:#9BF2FE;
+    ---background-body:#E0E0E0; 
+    ---font-principal: "Assistant", sans-serif; 
+}
+/*  */
+
+body{
+    background-color: var(---background-body);
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    margin: 30px 10px;
+}
+
+.content .localidade{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background-color: #fff;
+    padding: 20px;
+    width: 400px;
+}
+.content .localidade .titulo{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+.content .localidade .titulo .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 2px solid var(---azul_escuro);
+    border-radius: 50%;
+}
+
+.content .localidade .titulo .circle span{
+    font-size: 20px;
+    color: var(---azul_escuro);
+}
+.content .localidade .titulo .informacoes{
+    font-family: var(---font-principal);
+}
+.content .localidade .titulo .informacoes .step{
+    text-transform: uppercase;
+    font-family: var(---font-principal);
+    font-size: 14px;
+}
+
+.content .localidade .titulo .informacoes .strong{
+    font-weight: bold;
+    font-size: 14px;
+    font-family: var(---font-principal);
+}
+
+.content .localidade .add-modal{
+    width: 100%;
+    height: 55px;
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+    border-radius: 10px;
+    font-family: var(---font-principal);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: .5s all;
+}
+
+.content .localidade .link-voltar-perfil{
+    font-family: var(---font-principal);
+    text-transform: uppercase;
+    color: var(---azul_escuro);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+/* Modal */
+.modal-container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #a6a6a6d1;
+    row-gap: 30px;
+    height: 100vh;
+    width: 100%;
+    padding: 0 10px;
+    transition: .5s all;
+}
+
+.modal-container .modal{
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    row-gap: 20px;
+    background-color: #fff;
+}
+.modal-container .modal .titulo{
+    font-family: var(---font-principal);
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(---azul_escuro);
+    padding: 20px 10px;
+    border-bottom: 2px solid #3e3c4cb9;
+}
+
+.modal-container .modal .forms{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    row-gap: 30px;
+}
+
+.modal-container .modal .forms .box{
+    position: relative;
+}
+
+.modal-container .modal .forms .box input{
+    width: 100%;
+    position: relative;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-bottom: 3px solid var(---azul_escuro);
+    transition: all  2s;
+}
+
+.modal-container .modal .forms .box label{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    font-family: var(---font-principal);
+    font-size: 18px;
+    font-weight: 600;
+    pointer-events: none;
+    color: #3e3c4c86;
+    transition: .4s all;
+}
+
+
+.box input:focus + label,
+.box input:valid + label{
+    transform: translateY(-25px);
+}
+
+.modal-container .modal .btn-modal{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+.modal-container .modal .btn-modal input{
+    width: 20%;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: var(---font-principal);
+    font-weight: bold;
+    outline: none;
+    font-size: 16px;
+    transition: .2s all;
+}
+.modal-container .modal .btn-modal .cancelar{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+}
+.modal-container .modal .btn-modal .salvar{
+    background-color: var(---azul-bebe);
+    color: var(---azul_escuro);
+}
+
+/* Fim Modal */
+
+
+
+
+
+/* Hover */
+.modal-container .modal .btn-modal .cancelar:hover{
+    background-color: #3e3c4cb3;
+}
+.modal-container .modal .btn-modal .salvar:hover{
+    background-color: #9bf2feaf;
+}
+
+
+
+
+.content .localidade .add-modal:hover{
+    background-color: #3e3c4cc9;
+}
+/* Fim Hover */
+
+
+
+
+/* Interatividade */
+
+.modal-container.show{
+    display: flex;
+
+}
+
+
+
+.box .erros{
+    position: relative;
+    bottom: 0px;
+    font-family: var(---font-principal);
+    display: none;
+    font-size: 14px;
+ }
+ 
+ .box.erro .erros{
+     color:red;
+     display: block;
+     padding: 2px 2px;
+     font-weight: 600;
+ }

@@ -1,0 +1,1222 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
+@import url(footer.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+/*  */
+
+body{
+    background-color: var(---background-body);
+}
+
+body.active{
+    overflow: hidden;
+}
+
+:root{
+    ---azul_escuro:#3E3C4C;
+    ---azul_bebe:#9BF2FE;
+    ---background-body:#E0E0E0;
+    ---font-principal: "Assistant", sans-serif; 
+}
+
+.nav-acessibilidade{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 88px;
+    top: 0;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    background-color: var(---azul_escuro);
+    border-bottom: 1px solid var(---azul_bebe);
+}
+
+.nav-acessibilidade .links-menu ul{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.nav-acessibilidade .links-menu ul li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.nav-acessibilidade .links-menu ul li span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(---font-principal);
+    background-color: var(---azul_bebe);
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+    color: var(---azul_escuro);
+    font-size: 14px;
+}
+
+.nav-acessibilidade .links-menu ul li a{
+    font-family: var(---font-principal);
+    color: var(---background-body);
+    font-weight: 600;
+}
+
+.nav-acessibilidade .fontes-contraste{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.nav-acessibilidade .fontes-contraste .fonts{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(---background-body);
+    font-family: var(---font-principal);
+    font-weight: 600;
+}
+.nav-acessibilidade .fontes-contraste .fonts button{
+    padding: 5px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+    font-weight: 600;
+}
+.nav-acessibilidade .fontes-contraste .contraste{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(---font-principal);
+    color: var(---background-body);
+    font-weight: 600;
+}
+.nav-acessibilidade .fontes-contraste .contraste button{
+    display: flex;
+    color: var(---background-body);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(---azul_escuro);
+    padding: 40px 88px;
+    height: 10px;
+    width: 100%;
+    margin-top: 43px;
+    text-decoration: none;
+}
+.cabecalho .logo{
+    width: 100%;
+    margin-right: 20px;
+}
+
+.cabecalho .button-entrar{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    background-color: var(---azul_bebe);
+    border-radius: 5px;
+    color: var(---azul_escuro);
+    font-weight: 900;
+    font-family: var(---font-principal);
+    text-transform: uppercase;
+}
+
+.cabecalho .menu{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    width: 100%;
+    justify-content: center;
+}
+
+
+.cabecalho .menu ul{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
+    width: 45%;
+    margin: 0 5px;
+}
+
+.cabecalho .menu ul li .links{
+    display: flex;
+    color:var(---background-body);
+    font-weight: bold;
+    font-family: "Assistant", sans-serif;
+    transition: all .5s ease-in-out;
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.cabecalho .menu .drop .dropdown{
+    display: none;
+    background-color: var(---background-body);
+    position: absolute;
+    padding: 15px;
+    height: 55px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 1px 1px 20px 0px #3c3c3c;
+}
+
+.cabecalho .menu .drop .dropdown .link-drop{
+    display: flex;
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-size: 18px;
+    font-weight: 600;
+    transition: .5s all;
+}
+
+
+.oportunidades-border{
+    border: 2px solid var(---background-body);
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: ease-in .2s;
+    color: var(---background-body);
+    font-family: var(---font-principal);
+    font-weight: bold;
+}
+
+.login span{
+    color: var(---background-body);
+    font-size: 26px;
+    transition: all .5s;
+}
+
+/* Hover e focus  animate*/
+
+@keyframes border-cresce {
+     to{
+        width: 100%;
+     }
+}
+
+.oportunidades-border:hover{
+    border-color: var(---azul_bebe);
+    color: var(---azul_bebe);
+}
+
+
+.cabecalho .menu .drop:hover .dropdown{
+    display: flex;
+}
+
+.cabecalho .menu .drop .dropdown .link-drop:hover{
+    animation: border-cresce .5s forwards;
+    border-bottom: 4px solid var(---azul_bebe);
+    width: 0;
+}
+
+.cabecalho .menu ul li .links:hover{
+    color: var(---azul_bebe);
+
+}
+
+.login span:hover{
+    color: var(---azul_bebe);
+}
+/* Fim Hover e focus animate*/
+
+
+
+/* Acessibilidade */
+.content .acessiblidade-container{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: fixed;
+    right: 0px;
+    z-index: 20;
+    top: 50%;
+}
+.content .acessiblidade-container .acessibilidade{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.content .acessiblidade-container .acessibilidade .assectibility{
+    background-color: var(---azul_bebe);
+    border: none;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(---azul_escuro);
+    cursor: pointer;
+    border-top-left-radius: 10px;
+}
+.content .acessiblidade-container .acessibilidade .assectibility span{
+    font-size: 25px;
+    pointer-events: none;
+}
+
+.content .acessiblidade-container .acessibilidade .acessiblidade-drop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+    gap: 5px;
+    padding: 10px;
+    background-color: var(---azul_bebe);
+    border-bottom-left-radius: 20px;
+    max-height: 0;
+    transition: max-height .5s ease-out;
+    overflow: hidden;
+}
+.content .acessiblidade-container .acessibilidade .acessiblidade-drop p{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+    font-family: var(---font-principal);
+    font-weight: bold;
+    color: var(---azul_escuro);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+
+
+/* Interatividade */
+.content .acessiblidade-container .acessibilidade .assectibility:hover ~ .acessiblidade-drop{
+    max-height: 300px;
+    overflow: hidden;
+}
+
+/* Fim Interatividade */
+
+
+/* acessiblidade-sidebar */
+
+.content .acessiblidade-container .acessiblidade-sidebar{
+    background-color: #ccc;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    overflow: hidden;
+    width: 400px;
+    height: 100vh;
+    right: -400px;
+    top: 0;
+    border-radius: 10px;
+    transition: right .5s ease-out;
+}
+
+.content .acessiblidade-container .acessiblidade-sidebar .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #3c3c3c;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.content .acessiblidade-container .acessiblidade-sidebar .header .titulo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.content .acessiblidade-container .acessiblidade-sidebar .header .titulo span{
+    color: var(---azul_bebe);
+}
+
+.content .acessiblidade-container .acessiblidade-sidebar .header .titulo .subtitulo{
+    font-family: var(---font-principal);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(---background-body);
+}
+.content .acessiblidade-container .acessiblidade-sidebar .header .btn-header{
+    display: flex;
+    gap: 5px;
+}
+.content .acessiblidade-container .acessiblidade-sidebar .header .btn-header .btn-acessibilidade{
+    background-color: transparent;
+    border: none;
+    color: var(---background-body);
+    cursor: pointer;
+}
+.content .acessiblidade-container .acessiblidade-sidebar .header .btn-header .btn-acessibilidade span{
+    pointer-events: none;
+}
+
+
+.acessiblidade-sidebar .controles{
+    display: flex;
+    padding: 0 10px;
+}
+
+.acessiblidade-sidebar .controles .controle-fontes{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.acessiblidade-sidebar .controles .controle-fontes .titulo{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-size: 22px;
+}
+.acessiblidade-sidebar .controles .controle-fontes .boxs .box{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.acessiblidade-sidebar .controles .controle-fontes .boxs .box .titulo{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.acessiblidade-sidebar .controles .controle-fontes .boxs .box .subtitulo{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-weight: bold;
+}
+.acessiblidade-sidebar .controles .controle-fontes .boxs .box .intertítulo{
+    font-family: var(---font-principal);
+    font-size: 14px;
+    color: #4d4d8e;
+    margin-bottom: 10px;
+}
+
+.acessiblidade-sidebar .controles .controle-fontes .boxs .box .Barras-status{
+    display: flex;
+    gap: 5px;
+    margin: 30px 0 5px ;
+}
+.acessiblidade-sidebar .controles .controle-fontes .boxs .box .Barras-status .barra{
+    width: 50px;
+    height: 6px;
+    background-color: #8a8a8a;
+    border-radius: 10px;
+}
+
+/* hover */
+.acessiblidade-sidebar .controles .controle-fontes .boxs .box:hover{
+    border: 2px solid black;
+    transition: .3s all;
+}
+
+/* Fim hover */
+
+
+
+/* Interatividade */
+.content .acessiblidade-container .acessiblidade-sidebar.open{
+    right: 0;
+    border: 1px solid black;
+    transition: right .5s ease;
+}
+
+/* Fim Interatividade */
+
+
+
+
+.content .sobre{
+    display: flex;
+    align-items: center;
+    background-color: var(---azul_escuro);
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    padding: 18px 18px 107px;
+}
+
+
+.content .sobre .text-sobre{
+    display: flex;
+    width: 100%;
+    padding: 0 0 0 90px;
+    justify-content: space-between;
+    row-gap: 20px;
+    flex-direction: column;
+}
+
+.content .sobre .text-sobre .titulo{
+    display: flex;
+    align-items: center;
+    font-family: var(---font-principal);
+    font-size: 50px;
+    font-size: 2.5vw;
+    line-height: 150%;
+    color: var(---background-body);
+    margin-bottom: 40px;
+}
+
+.content .sobre .text-sobre p{
+    font-size: 1.4em;
+    font-family: var(---font-principal);
+    color: var(---background-body);
+    width: 75%;
+    margin-bottom: 50px;
+}
+
+.content .sobre .text-sobre .button-contratar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    white-space: nowrap;
+    padding: 0 20px;
+    height: 9vh;
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+    border-radius: 50px;
+    font-family: var(---font-principal);
+    font-size: 20px;
+    font-weight: 700;
+    transition: all .5s;
+}
+
+.content .sobre .text-sobre .button-contratar span{
+    background-color: #9BF2FE;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(---azul_escuro);
+    box-shadow: 0 0px 18px 0px #335c64;
+}
+
+.content .sobre .img{
+    display: flex;
+    justify-content: center;
+    width: 55%;
+}
+.content .sobre .img .img-person{
+    width: 85%;
+    border-radius: 50%;
+}
+
+/* Hover */
+.content .sobre .text-sobre .button-contratar:hover{
+    transform: translateY(-5px);
+    background-color: #78bcc5;
+    color: var(---azul_escuro);
+}
+
+.righ-container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.righ-container .menu-mobile{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    transition: .1s all;
+    padding: 5px;
+}
+.righ-container .menu-mobile span{
+    font-size: 25px;
+    color: var(---background-body);
+    pointer-events: none;
+}
+
+
+.righ-container .menu-mobile:active{
+    border-radius: 50%;
+    background-color: #e0e0e02d;
+}
+
+
+/* Fim section sobre */
+
+
+/* section contratação */
+.content .contratação{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 88px;
+    margin: 0 0 2em;
+}
+
+.content .contratação .titulo{
+    margin: 2em 0 2em;
+    font-family: var(---font-principal);
+    font-size: 35px;
+    color: var(---azul_escuro);
+}
+
+.content .contratação .cards{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.content .contratação .cards .card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(---azul_escuro);
+    width: 20%;
+    padding: 20px 5px;
+    row-gap: 50px;
+    border-radius: 10px;
+    margin-bottom: 2em;
+}
+
+.content .contratação .cards .card p{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-family: var(---font-principal);
+    font-size: 20px;
+    color: var(---background-body);
+}
+
+.content .contratação .cards .card img{
+    width: 65%;
+}
+
+.content .button-contratar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    white-space: nowrap;
+    padding: 0 20px;
+    height: 9vh;
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+    border-radius: 50px;
+    font-family: var(---font-principal);
+    font-size: 20px;
+    font-weight: 700;
+    transition: all .5s;
+    margin-bottom: 2em;
+}
+
+.content .button-contratar span{
+    background-color: #9BF2FE;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(---azul_escuro);
+    box-shadow: 0 0px 18px 0px #335c64;
+}
+
+/* Hover */
+.content .button-contratar:hover{
+    transform: translateY(-5px);
+    background-color: #78bcc5;
+    color: var(---azul_escuro);
+}
+/* Fim Hover */
+/* Fim section contratação */
+
+/* section vantagens */
+.content .vantagens{
+    display: flex;
+    flex-direction: column;
+    background-color: var(---azul_escuro);
+    padding:  0 88px;
+}
+
+.content .vantagens .titulo{
+    display: flex;
+    justify-content: center;
+    font-family: var(---font-principal);
+    color: var(---background-body);
+    font-size: 35px;
+    margin: 2em 0 2em;
+}
+
+.content .vantagens .icons{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+.content .vantagens .icons p{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 24px;
+    font-family: var(---font-principal);
+    font-weight: bold;
+}
+.content .vantagens .icons p span{
+    font-size: 50px;
+}
+
+.content .vantagens .icons .color-blue{
+    color: var(---azul_bebe);
+}
+
+.content .vantagens .icons .color-grey{
+    color: var(---background-body);
+}
+
+.content .vantagens .button-contratacao{
+    margin: 2em auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    white-space: nowrap;
+    padding: 0 20px;
+    height: 9vh;
+    border: 2px solid var(---azul_bebe);
+    color: var(---azul_bebe);
+    border-radius: 50px;
+    font-family: var(---font-principal);
+    font-size: 20px;
+    font-weight: 700;
+    transition: all .5s;
+}
+
+.content .vantagens .button-contratacao span{
+    background-color: #9BF2FE;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(---azul_escuro);
+    box-shadow: 0 0px 18px 0px #335c64;
+}
+
+/* Hover */
+.content .vantagens .button-contratacao:hover{
+    transform: translateY(-5px);
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+}
+/* Fim Hover */
+/* Fim section vantagens */
+
+
+/* nao-perca-tempo */
+.content .nao-perca-tempo{
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    padding: 50px 88px;
+    gap: 40px;
+}
+
+.content .nao-perca-tempo .text-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    row-gap: 100px;
+}
+.content .nao-perca-tempo .Estudantes{
+    width: 40%
+}
+.content .nao-perca-tempo .text-button p{
+    font-family: var(---font-principal);
+    font-size: 2vw;
+    font-weight: bold;
+    color: var(---azul_escuro);
+}
+.content .nao-perca-tempo .text-button .button-contratacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    white-space: nowrap;
+    padding: 0 20px;
+    height: 9vh;
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+    border-radius: 50px;
+    font-family: var(---font-principal);
+    font-size: 20px;
+    font-weight: 700;
+    transition: all .5s;
+    margin-bottom: 2em;
+}
+
+.content .nao-perca-tempo .text-button .button-contratacao span{
+    background-color: #9BF2FE;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(---azul_escuro);
+    box-shadow: 0 0px 18px 0px #335c64;
+}
+
+/* Hover */
+.content .nao-perca-tempo .text-button .button-contratacao:hover{
+    transform: translateY(-5px);
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+}
+/* Fim Hover */
+/* Fim nao-perca-tempo */
+
+
+.content .side-bar-menu{
+    display: none;
+    position: fixed;
+    right: -300px;
+    transition: right .3s ease-out;
+    top: 0;
+    background-color:var(---azul_escuro);
+    width: 300px;
+    height: 100vh;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    row-gap: 40px;
+    flex-direction: column;
+}
+
+
+
+
+/* Responsividade */
+/* Mobile */
+
+@media only screen and (min-width: 320px ) and (max-width: 480px) {
+    /* Cabecalho */
+    .nav-acessibilidade{
+        justify-content: center;
+        
+    }
+
+    .nav-acessibilidade .links-menu{
+        display: none;
+    }
+
+    .cabecalho{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 35px 10px;
+    }
+
+    .cabecalho .menu{
+        display: none;
+    }
+    .cabecalho .logo{
+        width: 85%;
+    }
+
+    .righ-container .menu-mobile{
+        display: flex;
+    }
+    /* Fim Cabecalho */
+
+    .content{
+     margin-top: 0;   
+    }
+    /* section Sobre */
+    .content .sobre{
+        padding: 30px 10px;
+        flex-direction: column;
+    }
+
+    .content .sobre .text-sobre{
+        row-gap: 10px;
+        padding: 0;
+    }
+    .content .sobre .text-sobre .titulo{
+        font-size: 30px;
+    }
+
+    .content .sobre .text-sobre p{
+        width: 100%;
+    }
+
+    .content .sobre .text-sobre .button-contratar{
+        width: 300px;
+        line-height: 100%;
+        white-space: wrap;
+    }
+
+    .content .sobre .img{
+        width: 100%;
+    }
+    /* Fim section sobre */
+
+    /* Section contratacao */
+    .content .contratação{
+        padding: 0 10px;
+    }
+    .content .contratação .titulo{
+        font-size: 25px;
+        text-align: center;
+    }
+    .content .contratação .cards{
+        flex-direction: column;
+    }
+    .content .contratação .cards .card{
+        width: 100%;
+        row-gap: 30px;
+    }
+
+    .content .button-contratar{
+        width: 300px;
+        line-height: 100%;
+        white-space: wrap;
+    }
+    
+    /* Fim Section contratacao */
+
+    /* Section Vantagens */
+    .content .vantagens{
+        padding: 0 10px;
+    }
+    .content .vantagens .titulo{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .content .vantagens .button-contratacao{
+        width: 300px;
+        line-height: 100%;
+        white-space: wrap;
+    }
+    /* Fim Section Vantagens */
+
+    /* Section nao perca tempo */
+    .content .nao-perca-tempo{
+        padding: 50px 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content .nao-perca-tempo .Estudantes{
+        width: 100%;
+    }
+    .content .nao-perca-tempo .text-button{
+        width: 100%;
+        row-gap: 50px;
+    }
+    .content .nao-perca-tempo .text-button p{
+        font-size: 18px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .content .nao-perca-tempo .text-button .button-contratacao{
+        width: 300px;
+        line-height: 100%;
+        white-space: wrap;
+    }
+    /* Fim Section nao perca tempo */
+
+    /* menu mobile  side-bar-menu */
+    .content .side-bar-menu{
+        display: flex;
+        position: fixed;
+        right: -300px;
+        transition: right .3s ease-out;
+        top: 0;
+        background-color:var(---azul_escuro);
+        width: 300px;
+        height: 100vh;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        row-gap: 40px;
+        flex-direction: column;
+    }
+    .content .modal-sidebar{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 1000%;
+        background-color: #2e2e2e3d;
+    }
+    .content .side-bar-menu .button-close{
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .content .side-bar-menu .button-close span{
+        pointer-events: none;
+        font-size: 25px;
+    }
+    .content .side-bar-menu .nav-menu{
+        display: flex;    
+        flex-direction: column;
+        row-gap: 20px;
+        white-space: nowrap;
+    }
+
+    .content .side-bar-menu .nav-menu  .link-menu{
+        
+        font-family: var(---font-principal);
+        color: var(---background-body);
+        font-weight: 600;
+        transition: .2s all;
+        font-size: 20px;
+    }
+
+    
+
+    /* Interatividade */
+    .content .side-bar-menu.open{
+        right: 0;
+    }
+    .content .modal-sidebar.show{
+        display: flex;
+    }
+
+    /* Fim Interatividade */
+
+   /* Hover */
+   .content .side-bar-menu .nav-menu  .link-menu:hover{
+    transition: .3s all;
+    color: #e0e0e046;
+}
+/* Fim Hover */
+    /* Fim menu Mobile */
+}
+
+/* Tablets */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  /* Cabecalho */
+  .nav-acessibilidade{
+    justify-content: center;
+}
+
+.nav-acessibilidade .links-menu{
+    display: none;
+}
+
+  .cabecalho{
+    padding: 40px 10px;
+    z-index: 1;
+}
+.cabecalho .menu {
+    display: none;
+}
+
+.cabecalho .logo{
+    width: 85%;
+}
+.righ-container .menu-mobile{
+    display: flex;
+}
+
+/* Fim Cabecalho */
+
+.content{
+    margin-top: 0;   
+   }
+
+/* section Sobre */
+.content .sobre{
+    padding: 30px 10px;
+    flex-direction: column;
+}
+
+.content .sobre .text-sobre{
+    row-gap: 10px;
+    width: 100%;
+    padding: 0 ;
+}
+.content .sobre .text-sobre .titulo{
+    font-size: 30px;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.content .sobre .text-sobre p{
+    width: 100%;
+    text-wrap: balance;
+    text-align: center;
+}
+
+.content .sobre .text-sobre .btn-sobre{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content .sobre .text-sobre .button-contratar{
+    width: 300px;
+    line-height: 110%;
+    white-space: wrap;
+}
+
+.content .sobre .img{
+    width: 80%;
+}
+/* Fim section Sobre */
+
+/* Section contratação */
+.content .contratação{
+    padding: 0 10px;
+}
+
+.content .contratação .titulo{
+    font-size: 30px;
+    text-align: center;
+}
+.content .contratação .cards{
+    flex-direction: column;
+    align-items: center;
+}
+.content .contratação .cards .card{
+    width: 80%;
+}
+.content .contratação .button-contratar{
+    width: 300px;
+    line-height: 110%;
+    white-space: wrap;
+}
+/* Fim Section contratação */
+
+ /* Section nao perca tempo */
+ .content .nao-perca-tempo{
+    padding: 50px 10px;
+    flex-direction: column;
+    align-items: center;
+}
+.content .nao-perca-tempo .Estudantes{
+    width: 100%;
+}
+.content .nao-perca-tempo .text-button{
+    width: 100%;
+    row-gap: 50px;
+}
+.content .nao-perca-tempo .text-button p{
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.content .nao-perca-tempo .text-button .button-contratacao{
+    width: 300px;
+    line-height: 110%;
+    white-space: wrap;
+}
+/* Fim Section nao perca tempo */
+
+    /* Section Vantangens */
+    .content .vantagens{
+        padding: 0 10px;
+    }
+    .content .vantagens .titulo{
+        font-size: 30px;
+        text-align: center;
+    }
+    .content .vantagens .button-contratacao{
+        width: 300px;
+        line-height: 110%;
+        white-space: wrap;
+    }
+    /* Fim Section Vantangens */
+
+
+    /* menu mobile  side-bar-menu */
+    .content .side-bar-menu{
+        display: flex;
+        position: fixed;
+        right: -300px;
+        transition: right .3s ease-out;
+        top: 0;
+        background-color:var(---azul_escuro);
+        width: 300px;
+        height: 100vh;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        row-gap: 40px;
+        flex-direction: column;
+    }
+    .content .modal-sidebar{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 1000%;
+        background-color: #2e2e2e3d;
+    }
+    .content .side-bar-menu .button-close{
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .content .side-bar-menu .button-close span{
+        pointer-events: none;
+        font-size: 25px;
+    }
+    .content .side-bar-menu .nav-menu{
+        display: flex;    
+        flex-direction: column;
+        row-gap: 20px;
+        white-space: nowrap;
+    }
+
+    .content .side-bar-menu .nav-menu  .link-menu{
+        
+        font-family: var(---font-principal);
+        color: var(---background-body);
+        font-weight: 600;
+        transition: .2s all;
+        font-size: 20px;
+    }
+
+    
+
+    /* Interatividade */
+    .content .side-bar-menu.open{
+        right: 0;
+    }
+    .content .modal-sidebar.show{
+        display: flex;
+    }
+
+     /* Hover */
+     .content .side-bar-menu .nav-menu  .link-menu:hover{
+        transition: .3s all;
+        color: #e0e0e046;
+    }
+    /* Fim Hover */
+
+/* Fim Interatividade */
+    /* Fim menu Mobile */
+}

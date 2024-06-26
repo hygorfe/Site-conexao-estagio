@@ -1,0 +1,337 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    ---azul_escuro:#3E3C4C;
+    ---azul-bebe:#9BF2FE;
+    ---background-body:#E0E0E0; 
+    ---font-principal: "Assistant", sans-serif; 
+}
+
+
+
+body{
+    background-color: var(---background-body);
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    margin: 30px 10px;
+}
+
+.content .formacao{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background-color: #fff;
+    padding: 20px;
+    width: 400px;
+}
+.content .formacao .titulo{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.content .formacao .titulo .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 2px solid var(---azul_escuro);
+    border-radius: 50%;
+}
+
+.content .formacao .titulo .circle span{
+    font-size: 20px;
+}
+.content .formacao .titulo .informacoes{
+    font-family: var(---font-principal);
+}
+.content .formacao .titulo .informacoes .step{
+    text-transform: uppercase;
+    font-family: var(---font-principal);
+    font-size: 14px;
+}
+
+.content .formacao .titulo .informacoes .strong{
+    font-weight: bold;
+    font-size: 14px;
+    font-family: var(---font-principal);
+}
+
+.content .formacao .boxing{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.content .formacao .box-formacao{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10px;
+    background-color: #c5c3d155;
+    gap: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+.content .formacao .box-formacao p{
+    font-family: var(---font-principal);
+    white-space: wrap;
+    margin-left: 30px;
+    font-weight: 600;
+    
+}
+.content .formacao .box-formacao .btns{
+    display: flex;
+}
+.content .formacao .box-formacao .btns button, .content .formacao .box-formacao .btns a{
+    display: flex;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent; 
+    padding: 10px;
+    border-radius: 50%;
+    transition: .3s all;
+    text-decoration: none;
+    color: var(---azul_escuro);
+}
+.content .formacao .box-formacao .btns button span, .content .formacao .box-formacao .btns a span{
+    pointer-events: none;
+}
+.content .formacao .box-formacao .btns button:hover, .content .formacao .box-formacao .btns a:hover{
+    background-color: #E0E0E0;
+}
+
+
+.content .formacao .add-modal{
+    width: 100%;
+    height: 55px;
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+    border-radius: 10px;
+    font-family: var(---font-principal);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: .5s all;
+}
+
+.content .formacao .link-voltar-perfil{
+    font-family: var(---font-principal);
+    text-transform: uppercase;
+    color: var(---azul_escuro);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+/* Modal */
+.modal-container, .modal-container-edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+}
+
+.modal-container .modal, .modal-container-edit .modal{
+    width: 700px;
+    margin: 10px 10px;
+    background-color: #fff;
+}
+.modal-container .modal .titulo, .modal-container-edit .modal .titulo{
+    font-family: var(---font-principal);
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(---azul_escuro);
+    padding: 20px 10px;
+    border-bottom: 2px solid #3e3c4cb9;
+}
+
+.modal-container .modal .forms, .modal-container-edit .modal .forms{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    row-gap: 20px;
+}
+
+.modal-container .modal .forms .box .titulo-data, .modal-container-edit .modal .forms .box .titulo-data{
+    font-family: var(---font-principal);
+    color: #3e3c4c86;
+    font-weight: 600;
+}
+
+.modal-container .modal .forms .box-radio, .modal-container-edit .modal .forms .box-radio{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.modal-container .modal .forms .subtitulo, .modal-container-edit .modal .forms .subtitulo{
+    font-family: var(---font-principal);
+    margin-bottom: 10px;
+}
+.modal-container .modal .forms .box-radio input[type="radio"], .modal-container-edit .modal .forms .box-radio input[type="radio"]{
+    font-family: var(---font-principal);
+    width: 20px;
+    height: 20px;
+}
+.modal-container .modal .forms .box-radio label, .modal-container-edit .modal .forms .box-radio label{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-weight: 600;
+}
+
+.modal-container .modal .forms .box, .modal-container-edit .modal .forms .box{
+    position: relative;
+}
+.modal-container .modal .forms .box select, .modal-container-edit .modal .forms .box select{
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid var(---azul_escuro);
+    font-size: 20px;
+    outline: none;
+}
+
+.modal-container .modal .forms .box input, .modal-container-edit .modal .forms .box input{
+    width: 100%;
+    position: relative;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-bottom: 3px solid var(---azul_escuro);
+    transition: all  2s;
+    text-transform: capitalize;
+}
+
+.modal-container .modal .forms .box label, .modal-container-edit .modal .forms .box label{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    font-family: var(---font-principal);
+    font-size: 18px;
+    font-weight: 600;
+    pointer-events: none;
+    color: #3e3c4c86;
+    transition: .4s all;
+}
+
+
+.box input:focus + label,
+.box input:valid + label{
+    transform: translateY(-20px);
+}
+
+.modal-container .modal .btn-modal, .modal-container-edit .modal .btn-modal{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+.modal-container .modal .btn-modal a, .modal-container .modal .btn-modal input[type="submit"], .modal-container-edit .modal .btn-modal input[type="submit"], .modal-container-edit .modal .btn-modal a{
+    width: 20%;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: var(---font-principal);
+    font-weight: bold;
+    font-size: 16px;
+    transition: .2s all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.modal-container .modal .btn-modal .cancelar, .modal-container-edit .modal .btn-modal .cancelar{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+}
+.modal-container .modal .btn-modal .salvar, .modal-container-edit .modal .btn-modal .salvar{
+    background-color: var(---azul-bebe);
+    color: var(---azul_escuro);
+}
+
+.modal .box-check{
+    display: flex;
+    gap: 10px;
+    font-family: var(---font-principal);
+}
+.modal .box-check input{
+    width: 16px;
+}
+
+/* Fim Modal */
+
+
+
+
+
+/* Hover */
+.modal-container .modal .btn-modal .cancelar:hover, .modal-container-edit .modal .btn-modal .cancelar:hover{
+    background-color: #3e3c4cb3;
+}
+.modal-container .modal .btn-modal .salvar:hover, .modal-container-edit .modal .salvar:hover{
+    background-color: #9bf2feaf;
+}
+
+
+
+
+.content .formacao .add-modal:hover{
+    background-color: #3e3c4cc9;
+}
+/* Fim Hover */
+
+.content .formacao .add-modal.block{
+    opacity: .8;
+    pointer-events: none;
+}
+
+
+
+/* Interatividade */
+
+.modal-container.show{
+    display: flex;
+}
+
+.modal-container-edit.open{
+    display: flex;
+}
+
+
+/* Resposividade */
+@media only screen and (min-width: 320px ) and (max-width: 480px) {
+    
+    .modal-container .modal, .modal-container-edit .modal{
+        margin: 10px 10px;
+    }
+
+    .modal-container .modal .btn-modal button, .modal-container-edit .modal .btn-modal button {
+        width: 36%;
+    }
+}
+
+@media only screen and (min-width:481px) and (max-width: 1024px){
+    .modal-container .modal, .modal-container-edit .modal{
+        margin: 10px 10px;
+    }
+}

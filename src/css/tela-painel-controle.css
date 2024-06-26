@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    ---azul_escuro:#3E3C4C;
+    ---azul_bebe:#9BF2FE;
+    ---background-body:#E0E0E0;
+    ---font-principal: "Assistant", sans-serif; 
+}
+/*  */
+body{
+    background-color: var(---background-body);
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    background-color: var(---azul_escuro);
+    padding: 0 88px;
+    height: 60px;
+    width: 100%;
+}
+
+.cabecalho .btn-sair{
+    position: absolute;
+    right: 30px;
+    padding: 8px 16px;
+    background-color: var(---azul_bebe);
+    border-radius: 5px;
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+
+.painel-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 90px;
+    width: 80rem;
+    padding: 20px 0;
+    margin-top: 10px;
+    
+}
+.painel-container .titulo{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+}
+.painel-container a{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.painel-container .boxing{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.painel-container .boxing .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    row-gap: 20px;
+    position: relative;
+    background-color: #fff;
+    padding: 60px 5px 10px; 
+    border-radius: 10px;
+    width: 350px;
+    margin-bottom: 35px;
+    box-shadow: 0px 0px 10px 0px #ffffff00;
+}
+.painel-container .boxing .box .icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #3E3C4C;
+    position: absolute;
+    top: -40px;
+}
+
+.painel-container .boxing .box .icon-container span{
+    font-size: 45px;
+    color: var(---background-body);
+}
+
+.painel-container .boxing .box .subtitulo{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+}
+.painel-container .boxing .box .value{
+    font-size: 50px;
+    font-family: var(---font-principal);
+    font-weight: bold;
+    color: var(---azul_escuro);
+}
+
+
+@media only screen and (min-width: 320px ) {
+    .painel-container{
+        width: 100%;
+    }
+}

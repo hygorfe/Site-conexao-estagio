@@ -1,0 +1,336 @@
+@import url('fonts.css');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(---background-body);
+}
+/*  */
+:root{
+    ---azul_escuro:#3E3C4C;
+    ---azul_bebe:#9BF2FE;
+    ---background-body:#E0E0E0;
+    ---font-principal: "Assistant", sans-serif; 
+}
+
+.content{
+    width: 100%;
+    display: flex;
+
+}
+
+
+.content .login-container{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    gap: 10px;
+}
+
+.content  .background-img{
+    display: flex;
+    width: 38%;
+    position: fixed;
+    background-color: var(---azul_escuro);
+    height: 100vh;
+    top: 0;
+}
+.content  .background-img img{
+    width: 100%;
+}
+
+.content .login-container .forms{
+    display: flex;
+    row-gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    margin-top: 40px;
+}
+.content .login-container .forms img{
+    width: 180px;
+}
+
+.content .login-container .forms .box{
+    display: flex;
+}
+
+
+.content .login-container .forms form .box{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 10px;
+}
+.content .login-container .forms form .box input{
+    width: 430px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid var(---background-body);
+    outline: none;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.content .login-container .forms form .box input::placeholder{
+    font-family: var(---font-principal);
+    font-weight: bold;
+    font-size: 16px;
+    color: #c3c2c2dd;
+}
+
+.content .login-container .forms form .box input:focus{
+    outline: 2px solid var(---azul_bebe);
+    background-color: #fbfbfb5b;
+}
+
+
+
+.content .login-container .forms form .box .minha-senha{
+    display: flex;
+    margin: .5em 0 .5em auto;
+    justify-content: flex-end;
+    color: var(---azul_escuro);
+    font-family: var(---font-principal);
+}
+
+.content .login-container .forms form .box .text{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+    font-family: var(---font-principal);
+}
+
+.content .login-container .forms form .box .text  a{
+    font-family: var(---font-principal);
+    text-transform: uppercase;
+    color: var(---azul_escuro);
+    font-weight: bold;
+}
+
+.content .login-container .forms form .box input[type="submit"]{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+    font-family: var(---font-principal);
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all .5s;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.content .login-container .forms form .box input[type="submit"]:hover{
+    background-color: #4e4c59;
+}
+
+
+.modal-email-enviado{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #0000004f;
+    display: none;
+    top: 0;
+}
+
+.modal-email-enviado.push{
+    display: block;
+}
+
+
+
+
+.modal-email-enviado .modalEmail{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.modal-email-enviado .modalEmail .header-modal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid #6d6a7f;
+}
+.modal-email-enviado .modalEmail .header-modal p{
+    font-family: var(---font-principal);
+    font-weight: bold;
+}
+
+.modal-email-enviado .modalEmail .header-modal button{
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.modal-email-enviado .modalEmail .header-modal button span{
+    pointer-events: none;
+}
+
+.modal-email-enviado .modalEmail .body-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+.modal-email-enviado .modalEmail .body-modal h4{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-size: 18px;
+}
+
+.modal-email-enviado .modalEmail .body-modal span{
+    font-size: 150px;
+    color: var(---azul_bebe);
+    margin-bottom: 18px;
+}
+
+.modal-email-enviado .modalEmail .body-modal p{
+    font-family: var(---font-principal);
+    font-size: 19px;
+    padding: 0 10px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #6d6a7f;
+    text-align: center;
+}
+.modal-email-enviado .modalEmail .body-modal .btnContinuar{
+    width: 100px;
+    padding: 10px;
+    height: 45px;
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+    outline: none;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.modal-email-enviado .modalEmail .body-modal .btnContinuar:hover{
+    background-color: #9bf2fe9c;
+}
+
+.modal-email-enviado .modalEmail .body-modal .btnContinuar:active{
+    scale: .9;
+}
+
+
+
+
+
+
+
+.box span{
+    position: relative;
+    bottom: 0px;
+    font-family: var(---font-principal);
+    display: none;
+    font-size: 14px;
+ }
+ 
+ .box.erro span{ 
+    color: red;
+    display: block;
+    padding: 2px 2px;
+    font-weight: 600;
+ }
+ 
+
+
+
+
+
+
+
+
+
+
+/* Media query */
+@media only screen and (min-width: 320px ) and (max-width: 480px){
+    .content{
+        display: flex;
+        justify-content: center;
+        margin: 0 20px;
+    }
+
+    .content .background-img{
+        display: none;
+    }
+    .content .login-container{
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .content .login-container .forms{
+        width: 100%;
+    }
+    .content .login-container .forms form{
+        width: 100%;
+    }
+    .content .login-container .forms form .box{
+        width: 100%;
+    }
+
+    .content .login-container .forms form .box input{
+        width: 100%;
+    }
+    
+}
+
+@media only screen and (min-width: 481px ) and (max-width: 1024px){
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+
+    .content .login-container{
+        justify-content: center;
+        /* padding: 0 40px; */
+    }
+    
+    .content  .background-img{
+        display: none;
+    }
+
+    .content .login-container .forms{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .content .login-container .forms{
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+    .content .login-container .forms form .box{
+        width: 100%;
+    }
+}

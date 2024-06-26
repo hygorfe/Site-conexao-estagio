@@ -1,0 +1,557 @@
+@import url('fonts.css');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(---background-body);
+    height: 100vh;
+}
+
+:root{
+    ---azul_escuro:#3E3C4C;
+    ---azul_bebe:#9BF2FE;
+    ---background-body:#E0E0E0;
+    ---font-principal: "Assistant", sans-serif; 
+}
+
+.content{
+    width: 100%;
+}
+
+
+.content .login-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.content .login-container .background-img{
+    display: flex;
+    width: 40%;
+    background-color: var(---azul_escuro);
+    height: 100vh;
+}
+.content .login-container .background-img img{
+    width: 100%;
+}
+
+.content .login-container .forms{
+    display: flex;
+    row-gap: 50px;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+}
+.content .login-container .forms img{
+    width: 180px;
+}
+
+.content .login-container .forms .box{
+    display: flex;
+}
+
+.content .login-container .forms form {
+    width: 46%;
+}
+
+.content .login-container .forms form .box{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 10px;
+}
+.content .login-container .forms form .box input{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid var(---background-body);
+    outline: none;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.content .login-container .forms form .box input::placeholder{
+    font-family: var(---font-principal);
+    font-weight: bold;
+    font-size: 16px;
+    color: #c3c2c2dd;
+}
+
+.content .login-container .forms form .box input:focus{
+    outline: 2px solid var(---azul_bebe);
+    background-color: #fbfbfb5b;
+}
+
+
+
+.content .login-container .forms form .box .minha-senha{
+    display: flex;
+    margin: .5em 0 .5em auto;
+    justify-content: flex-end;
+    color: var(---azul_escuro);
+    font-family: var(---font-principal);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.content .login-container .forms form .box .text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+    font-family: var(---font-principal);
+}
+
+.content .login-container .forms form .box .text  a{
+    font-family: var(---font-principal);
+    text-transform: uppercase;
+    color: var(---azul_escuro);
+    font-weight: bold;
+}
+
+.content .login-container .forms form .box input[type="submit"]{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+    font-family: var(---font-principal);
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all .5s;
+    text-transform: uppercase;
+}
+
+.content .login-container .forms form .box input[type="submit"]:hover{
+    background-color: #4e4c59;
+}
+
+.modal-redefinir-senha{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #0000004f;
+}
+
+.modal-redefinir-senha .modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+    scale: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    display: none;
+}
+
+.modal-redefinir-senha .modal .header-modal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid #6d6a7f;
+}
+.modal-redefinir-senha .modal .header-modal p{
+    font-family: var(---font-principal);
+    font-weight: bold;
+}
+
+
+.modal-redefinir-senha .modal .header-modal button{
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.modal-redefinir-senha .modal .header-modal button span{
+    pointer-events: none;
+}
+.modal-redefinir-senha .modal .body-modal{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.modal-redefinir-senha .modal .body-modal .box{
+    margin-bottom: 40px;
+}
+.modal-redefinir-senha .modal .body-modal h4{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+.modal-redefinir-senha .modal .body-modal p{
+    font-family: var(---font-principal);
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #6d6a7f;
+
+}
+
+.modal-redefinir-senha .modal .body-modal input[type="email"]{
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    padding: 10px;
+    outline: none;
+    font-family: var(---font-principal);
+    font-size: 17px;
+}
+
+.modal-redefinir-senha .modal .body-modal .btn-loading {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    width: 40%;
+    height: 45px;
+}
+.modal-redefinir-senha .modal .body-modal .btn-loading .loading {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    border: 4px solid var(---azul_escuro);
+    border-right: 4px solid transparent;
+    display: none;
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.modal-redefinir-senha .modal .body-modal input[type="submit"]{
+    width: 100%;
+    height: 45px;
+    margin: 0 auto;
+    background-color: var(---azul_bebe);
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 30px;
+    text-align: start;
+    transition: .4s all;
+}
+
+
+.modal-redefinir-senha .modal .body-modal input[type="email"]::placeholder{
+    font-family: var(---font-principal);
+    color: #6d6a7f;
+    font-size: 16px;
+    font-weight: 700;
+}
+.modal-redefinir-senha .modal .body-modal input[type="email"]:focus{
+    background-color: #ececec;
+    border: 2px solid var(---azul_bebe);
+}
+
+.modal-redefinir-senha .modal .body-modal input[type="submit"]:hover{
+    background-color: #9bf2fe9c;
+}
+.modal-redefinir-senha .modal .body-modal input[type="submit"]:active{
+    scale: .9;
+}
+
+
+.modal-redefinir-senha.open{
+    display: block;
+}
+
+.modal-redefinir-senha .modal.show{
+    display: block;
+    scale: 1;
+}
+
+
+.modal-redefinir-senha .modal .body-modal .btn-loading .loading.click{
+    display: block;
+}
+
+
+
+.modal-email-enviado{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #0000004f;
+    display: none;
+}
+
+.modal-email-enviado.push{
+    display: block;
+}
+
+
+
+
+.modal-email-enviado .modalEmail{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.modal-email-enviado .modalEmail .header-modal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid #6d6a7f;
+}
+.modal-email-enviado .modalEmail .header-modal p{
+    font-family: var(---font-principal);
+    font-weight: bold;
+}
+
+.modal-email-enviado .modalEmail .header-modal button{
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.modal-email-enviado .modalEmail .header-modal button span{
+    pointer-events: none;
+}
+
+.modal-email-enviado .modalEmail .body-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+.modal-email-enviado .modalEmail .body-modal h4{
+    font-family: var(---font-principal);
+    color: var(---azul_escuro);
+    font-size: 18px;
+}
+
+.modal-email-enviado .modalEmail .body-modal span{
+    font-size: 150px;
+    transform: rotate(-50deg);
+    color: var(---azul_bebe);
+    margin-bottom: 18px;
+}
+
+.modal-email-enviado .modalEmail .body-modal p{
+    font-family: var(---font-principal);
+    font-size: 19px;
+    padding: 0 10px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #6d6a7f;
+    text-align: center;
+}
+.modal-email-enviado .modalEmail .body-modal .btnContinuar{
+    width: 100px;
+    padding: 10px;
+    height: 45px;
+    background-color: var(---azul_bebe);
+    color: var(---azul_escuro);
+    outline: none;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.modal-email-enviado .modalEmail .body-modal .btnContinuar:hover{
+    background-color: #9bf2fe9c;
+}
+
+.modal-email-enviado .modalEmail .body-modal .btnContinuar:active{
+    scale: .9;
+}
+
+
+
+
+
+.box span{
+   position: relative;
+   bottom: 0px;
+   font-family: var(---font-principal);
+   display: none;
+   font-size: 14px;
+}
+
+.box.erro span{
+    color: red;
+    display: block;
+    padding: 2px 2px;
+    font-weight: 600;
+}
+
+.erro_array{
+    color: red;
+    display: block;
+    padding: 2px 2px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: var(---font-principal);
+}
+
+
+
+
+
+
+
+
+
+/* Media query */
+
+@media only screen and (min-width: 320px ) and (max-width: 480px){
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+
+    .content .login-container{
+        justify-content: center;
+        padding: 0 40px;
+        width: 100%;
+    }
+    .content .login-container .background-img{
+        display: none;
+    }
+    .content .login-container .forms form .box .text {
+        flex-direction: column;
+    }
+
+    .content .login-container .forms{
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+    .content .login-container .forms form {
+        width: 100%;
+    }
+    .content .login-container .forms form .box{
+        width: 100%;
+    }
+
+    .content .login-container .forms form .box input{
+        width: 100%;
+    }
+
+    .modal-cadastro-nao-existe .modal{
+        width: 300px;
+    }
+
+    .modal-redefinir-senha .modal.show{
+        width: 90%;
+    }
+
+    .modal-redefinir-senha .modal .body-modal input[type="submit"]{
+       white-space: wrap;
+       line-height: 100%;
+    }
+
+
+    .modal-email-enviado .modalEmail{
+        width: 350px;
+    }
+
+    .modal-redefinir-senha .modal .body-modal input[type="submit"]{
+        padding: 0 20px;
+    }
+    
+}
+
+
+
+
+@media only screen and (min-width: 481px ) and (max-width: 1024px){
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+
+    .content .login-container{
+        justify-content: center;
+        padding: 0 40px;
+        width: 500px;
+    }
+    
+    .content .login-container .background-img{
+        display: none;
+    }
+
+    .content .login-container .forms{
+        align-items: center;
+        width: 100%;
+    }
+
+    
+
+    .content .login-container .forms{
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+    .content .login-container .forms form {
+        width: 100%;
+    }
+    .content .login-container .forms form .box{
+        width: 100%;
+    }
+
+    .modal-redefinir-senha .modal{
+        width: 480px;
+    }
+   
+    .modal-email-enviado .modalEmail{
+        width: 480px;
+    }
+
+
+    .modal-redefinir-senha .modal .body-modal input[type="submit"]{
+        padding: 0 20px;
+    }
+}
+
+
