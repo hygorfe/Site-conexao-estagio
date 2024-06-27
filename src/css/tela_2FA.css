@@ -122,3 +122,20 @@ body{
 .container-2FA .body-2FA .btns button:hover{
     background-color: #6c6a75;
 }
+
+
+
+@media only screen and (min-width: 320px ) and (max-width: 480px){
+
+    .content .container-2FA {
+        width: 400px;
+    }
+
+
+    .container-2FA .body-2FA span {
+        left: 7px;
+    }
+
+
+}
+

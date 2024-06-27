@@ -1,3 +1,36 @@
+<?php 
+session_start();
+require_once "config.php";
+
+
+if(isset($_POST["SubAtualizarSenha"])){
+    $emailRedefinirCandidato = $_SESSION["emailRedefinirCandidato"];
+
+    $sql = "SELECT * FROM candidato WHERE email = '$emailRedefinirCandidato'";
+    $result = mysqli_query($conn, $sql);
+
+    $redefinir_senha = mysqli_escape_string($conn, $_POST["redefinir_senha"]);
+
+
+    if($result && mysqli_num_rows($result) > 0){
+        $linha = mysqli_fetch_assoc($result);
+        $senha = $linha["Senha"];
+
+
+        $sql_U = "UPDATE candidato SET Senha = '$redefinir_senha' WHERE email = '$emailRedefinirCandidato'";
+
+        if(mysqli_query($conn, $sql_U)){
+        
+        }
+    }
+
+
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,10 +63,26 @@
     <input type="password" name="confirmar_senha" id="confirmar_senha"
      placeholder="Confirmar Senha">
     <span>A senha é Obrigatório</span>
+    <?php 
+    if(isset($_POST["SubAtualizarSenha"]))
+    if ($redefinir_senha === $senha) {
+    $erro = array();
+    $erro[] = "Senha nova não pode ser igual à antiga.";
+    foreach ($erro as $msg) {
+        echo "<p class=\"erro_array\">$msg</p>";
+    }
+    }else{
+    echo "";
+    header("Location: tela_de_login.php");
+    exit;
+    } 
+
+        ?>
+    
     </div>
 
     <div class="box">
-    <input class="submit" type="submit" value="Redefinir senha">
+    <input class="submit-btn" type="submit" name="SubAtualizarSenha" value="Redefinir senha">
 
     </div>
     </form>

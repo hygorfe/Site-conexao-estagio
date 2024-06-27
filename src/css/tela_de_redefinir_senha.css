@@ -135,18 +135,29 @@ body{
 
 
 .box span{
-   position: relative;
-   bottom: 0px;
-   font-family: var(---font-principal);
-   display: none;
-   font-size: 14px;
+    position: relative;
+    bottom: 0px;
+    font-family: var(---font-principal);
+    display: none;
+    font-size: 14px;
+    font-weight: 700;
+ }
+ 
+ .box.erro span{
+    color: #d53939;
+    display: block;
+    padding: 2px 2px;
 }
 
-.box.erro span{
+ 
+
+.erro_array{
     color: red;
     display: block;
     padding: 2px 2px;
     font-weight: 600;
+    font-size: 14px;
+    font-family: var(---font-principal);
 }
 
 

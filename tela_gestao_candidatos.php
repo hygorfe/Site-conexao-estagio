@@ -53,11 +53,11 @@ require_once "config.php";
     <table>
     <thead>
     <tr>
-        <th>Nome Empresa</th>
-        <th>CNPJ</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Email</th>
         <th>Telefone</th>
-        <th>Quantidade estagiarios</th>
-        <th>Tamanho</th>
+        <th>CPF</th>
     </tr>
     </thead>
     <tbody>

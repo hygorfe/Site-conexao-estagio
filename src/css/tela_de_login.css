@@ -458,9 +458,7 @@ body{
     .content .login-container .background-img{
         display: none;
     }
-    .content .login-container .forms form .box .text {
-        flex-direction: column;
-    }
+    
 
     .content .login-container .forms{
         align-items: center;

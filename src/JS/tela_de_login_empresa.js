@@ -10,7 +10,7 @@ const modal = document.querySelector('.modal')
 const formRedefinir = document.querySelector('.form-redefinir')
 const emailRedefinir = document.getElementById('emailRedefinir')
 const loading = document.querySelector('.loading')
-const modalEmailEnviado = document.querySelector('.modal-email-enviado')
+
 const modalEmail = document.querySelector('.modalEmail')
 const btnContinuar = document.querySelector('.btnContinuar')
 
@@ -31,12 +31,12 @@ document.addEventListener('click', (e) =>{
 
 document.addEventListener('click', (e) =>{
     const el = e.target;
-    if(el.classList.contains('btnEntrar') && inputEmail.value === "" && inputSenha.value === ""){
-        inputEmail.focus();
-        if(inputEmail.value === ""){
-            setErro(inputEmail, "Email é obrigatório")
+    if(el.classList.contains('btnEntrar') && inputEmailEmpresa.value === "" && inputSenha.value === ""){
+        inputEmailEmpresa.focus();
+        if(inputEmailEmpresa.value === ""){
+            setErro(inputEmailEmpresa, "Email é obrigatório")
         }else{
-                const formItem = inputEmail.parentElement;
+                const formItem = inputEmailEmpresa.parentElement;
                 formItem.className = "box"
             }
 
@@ -69,7 +69,6 @@ async function removeLoading(){
    await new Promise(resolve => setTimeout(resolve, 1000));
     loading.classList.remove('click');
     modalRedefinirSenha.classList.remove('open');
-    modalEmailEnviado.classList.add('push');
 }
 
 
@@ -81,19 +80,10 @@ btnRedefinir.addEventListener('click', async () =>{
     }else{
     await loadingClick()
     await removeLoading()
+    formRedefinir.submit();
     }
 })
 
-
-
-document.addEventListener('click', (e) =>{
-    const el = e.target;
-    if(el.classList.contains('btnContinuar')){
-        modalEmailEnviado.classList.remove('push')
-    }else if(el.classList.contains('btnCloseModal')){
-        modalEmailEnviado.classList.remove('push')
-    }
-})
 
 
 
@@ -104,9 +94,7 @@ formRedefinir.addEventListener('click', (e) =>{
         isValid = false
     }
 
-    if(!isValid){
-        e.preventDefault();
-    }
+
 })
 
 emailRedefinir.addEventListener('keyup', () =>{
@@ -203,19 +191,20 @@ textMsg.innerText = msg;
 formItem.className = "box erro";
 }
 
-
-document.addEventListener('keypress', (e) =>{
+document.addEventListener("keypress", (e) =>{
     if(e.key === "Enter"){
 
         isValid = true;
 
-
         if(emailRedefinir.value === ""){
-            isValid = false;
-        }
-    
-        if(!isValid){
+            isValid = false
             e.preventDefault();
+            emailRedefinir.focus();
+            setErro(emailRedefinir, "Por favor, insira seu e-mail cadastrado para redefinir sua senha")
+            }
+
         }
-    }
+
 })
+
+

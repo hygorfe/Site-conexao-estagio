@@ -29,6 +29,16 @@ document.addEventListener('click', (e) =>{
     }
 })
 
+formRedefinir.addEventListener('click', (e) =>{
+    isValid = true;
+
+    if(emailRedefinir.value === ""){
+        isValid = false
+    }
+
+
+})
+
 
 
 
@@ -162,15 +172,18 @@ textMsg.innerText = msg;
 formItem.className = "box erro";
 }
 
-document.addEventListener('keypress', (e) =>{
+document.addEventListener("keypress", (e) =>{
     if(e.key === "Enter"){
 
         isValid = true;
 
-
         if(emailRedefinir.value === ""){
-            isValid = false;
+            isValid = false
+            e.preventDefault();
+            emailRedefinir.focus();
+            setErro(emailRedefinir, "Por favor, insira seu e-mail cadastrado para redefinir sua senha")
+            }
+
         }
-    
-    }
+
 })

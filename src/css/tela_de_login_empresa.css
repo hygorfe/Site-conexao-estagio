@@ -8,7 +8,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/src/img/image-4.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(---azul_escuro);
@@ -446,7 +445,14 @@ body{
 
  
 
-
+.erro_array{
+    color: red;
+    display: block;
+    padding: 2px 2px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: var(---font-principal);
+}
 
 
 
@@ -485,9 +491,7 @@ body{
     .content .login-container .forms form .box input{
         width: 100%;
     }
-    .content .login-container .forms form .box .text{
-        flex-direction: column;
-    }
+    
 
     .modal-cadastro-nao-existe .modal{
         width: 300px;

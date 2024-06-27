@@ -50,34 +50,106 @@ require_once "config.php";
     if((isset($_SESSION["Tipo_usuario"]) == "adm" ) && (isset($_SESSION["senha"]))){
     $email = $_SESSION["email"];
 
-    $sql_C = "SELECT * FROM acesso_log_candidato";
-    $resultado_C = mysqli_query($conn, $sql_C);
-    
-    if($resultado_C && mysqli_num_rows($resultado_C) > 0){
-        while($linha = mysqli_fetch_assoc($resultado_C)){
-            echo "<tr>";
-            echo "<td>" . $linha["Nome"] . "</td>";
-            echo "<td>" . $linha["Tipo_usuario"] . "</td>";
-            echo "<td>" . $linha["Data_e_Hora"] . "</td>";
-            echo "<td>" . $linha["2FA"] . "</td>";
-            echo "</tr>";
-        }
+    if(!empty($_GET["search"])){
+        $data = mysqli_real_escape_string($conn, $_GET['search']);
 
-        $sql_E = "SELECT * FROM acesso_log_empresa";
-        $resultado_E = mysqli_query($conn, $sql_E);
+        
 
-        if($resultado_E && mysqli_num_rows($resultado_E) > 0){
-            while($resultado_E && $linha2 = mysqli_fetch_assoc($resultado_E)){
-                echo "<tr>";
-                echo "<td>" . $linha2["Nome"] . "</td>";
-                echo "<td>" . $linha2["Tipo_usuario"] . "</td>";
-                echo "<td>" . $linha2["Data_Hora"] . "</td>";
-                echo "<td>" . $linha2["2FA"] . "</td>";
+            $sql_C = "SELECT * FROM acesso_log_candidato WHERE Nome LIKE '%$data%' OR Data_e_Hora LIKE '%$data%' OR 2FA LIKE '%$data%' OR Tipo_usuario LIKE '%$data%'";
+            $resultado_C = mysqli_query($conn, $sql_C);
+        
+            if ($resultado_C && mysqli_num_rows($resultado_C) > 0) {
+                while ($linha = mysqli_fetch_assoc($resultado_C)) {
+                    $nome = $linha["Nome"];
+                    $Tipo_usuario = $linha["Tipo_usuario"];
+                    $data_e_hora = $linha["Data_e_Hora"];
+                    $Resposta2FA = $linha["2FA"];
+
+                    $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $data_e_hora);
+                    $data_formatada = $dateTime->format('d/m/Y H:i:s');
+        
+                    echo "<tr>";
+                    echo "<td>" . $nome . "</td>";
+                    echo "<td>" . $Tipo_usuario . "</td>";
+                    echo "<td>" . $data_formatada . "</td>";
+                    echo "<td>" . $Resposta2FA . "</td>";
+                    echo "</tr>";
+                }
+            }
+        
+            
+            $sql_E = "SELECT * FROM acesso_log_empresa WHERE Nome_empresa LIKE '%$data%' OR Data_Hora LIKE '%$data%' OR 2FA LIKE '%$data%' OR Tipo_usuario LIKE '%$data%'";
+            $resultado_E = mysqli_query($conn, $sql_E);
+        
+            if ($resultado_E && mysqli_num_rows($resultado_E) > 0) {
+                while ($linha2 = mysqli_fetch_assoc($resultado_E)) {
+                    $nome_empresa = $linha2["Nome_empresa"];
+                    $Tipo_usuario_empresa = $linha2["Tipo_usuario"];
+                    $data_hora = $linha2["Data_Hora"];  
+                    $Resposta2FA_empresa = $linha2["2FA"];
+
+                    $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $data_hora);
+                    $data_formatada_empresa = $dateTime->format('d/m/Y H:i:s');
+        
+                    echo "<tr>";
+                    echo "<td>" . $nome_empresa . "</td>";
+                    echo "<td>" . $Tipo_usuario_empresa . "</td>";
+                    echo "<td>" . $data_formatada_empresa . "</td>";  
+                    echo "<td>" . $Resposta2FA_empresa . "</td>";
+                    echo "</tr>";
+                }
+            }
+        
+        } else {
+            
+            $sql_C = "SELECT * FROM acesso_log_candidato";
+            $resultado_C = mysqli_query($conn, $sql_C);
+        
+            if ($resultado_C && mysqli_num_rows($resultado_C) > 0) {
+                while ($linha = mysqli_fetch_assoc($resultado_C)) {
+                    $nome = $linha["Nome"];
+                    $Tipo_usuario = $linha["Tipo_usuario"];
+                    $data_e_hora = $linha["Data_e_Hora"];
+                    $Resposta2FA = $linha["2FA"];
+
+                    $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $data_e_hora);
+                    $data_formatada = $dateTime->format('d/m/Y H:i:s');
+        
+                    echo "<tr>";
+                    echo "<td>" . $nome . "</td>";
+                    echo "<td>" . $Tipo_usuario . "</td>";
+                    echo "<td>" . $data_formatada . "</td>";
+                    echo "<td>" . $Resposta2FA . "</td>";
+                    echo "</tr>";
+                }
+            }
+        
+            
+            $sql_E = "SELECT * FROM acesso_log_empresa";
+            $resultado_E = mysqli_query($conn, $sql_E);
+        
+            if ($resultado_E && mysqli_num_rows($resultado_E) > 0) {
+                while ($linha2 = mysqli_fetch_assoc($resultado_E)) {
+                    $nome_empresa = $linha2["Nome_empresa"];
+                    $Tipo_usuario_empresa = $linha2["Tipo_usuario"];
+                    $data_hora = $linha2["Data_Hora"];  
+                    $Resposta2FA_empresa = $linha2["2FA"];
+
+                    $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $data_hora);
+                    $data_formatada_empresa = $dateTime->format('d/m/Y H:i:s');
+
+
+        
+                    echo "<tr>";
+                    echo "<td>" . $nome_empresa . "</td>";
+                    echo "<td>" . $Tipo_usuario_empresa . "</td>";
+                    echo "<td>" . $data_formatada_empresa . "</td>";  
+                    echo "<td>" . $Resposta2FA_empresa . "</td>";
+                    echo "</tr>";
+                }
             }
         }
 
-
-    }
 
 
 //     $sql = "SELECT DISTINCT acesso_log_candidato.Tipo_usuario AS Tipo_usuario_candidato,

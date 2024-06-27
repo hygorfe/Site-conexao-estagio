@@ -1,20 +1,44 @@
-const form = document.querySelector('form')
+const form = document.querySelector("form");
 const redefinirSenha = document.getElementById('redefinir_senha')
 const confirmarSenha = document.getElementById('confirmar_senha')
+const submitBtn = document.querySelector('.submit-btn');
 
+
+submitBtn.addEventListener('click', (e) =>{
+    if(redefinirSenha.value === ""){
+        setErro(redefinirSenha, 'A senha é obrigatória')
+    }else if(redefinirSenha.value.length < 8){
+        setErro(redefinirSenha, 'Senha deve ter no minimo 8 caracteres')
+    }else{
+        const formItem = redefinirSenha.parentElement;
+        formItem.className = "box"
+    }
+
+
+
+
+    if(confirmarSenha.value === ""){
+        setErro(confirmarSenha, "A confirmação de senha é obrigatória")
+    }else if(confirmarSenha.value !== redefinirSenha.value){
+        setErro(confirmarSenha, "Confirmação de senha deve ser igual senha")
+    }else{
+        const formItem = confirmarSenha.parentElement;
+        formItem.className = "box";
+    }
+})
 
 form.addEventListener('submit', (e) =>{
-    isvalid = true;
+    
+    isValid = true;
 
     if(redefinirSenha.value === "" || redefinirSenha.value.length < 8){
-        isvalid = false;
+        isValid = false;
     }
-
     if(confirmarSenha.value === "" || confirmarSenha.value !== redefinirSenha.value){
-        isvalid = false;
+        isValid = false;
     }
 
-    if(!isvalid){
+    if(!isValid){
         e.preventDefault();
     }
 })

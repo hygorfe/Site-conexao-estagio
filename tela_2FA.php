@@ -10,6 +10,7 @@ if(isset($_POST["submitEntrarAut"])){
     $email = $_SESSION["email"];
     $resposta = $_POST["resposta2FA"];
 
+    
 
 
     $sql = "SELECT 2FA_resposta FROM infog_candidato WHERE FK_candidato = (SELECT ID_candidato FROM candidato WHERE email = '$email')";
@@ -19,11 +20,58 @@ if(isset($_POST["submitEntrarAut"])){
         $linha = mysqli_fetch_assoc($result);
         $resposta2FA = $linha["2FA_resposta"];
     } 
+
+    if((isset($_SESSION["email"])) && (isset($_SESSION["senha"]))){
+        $email = $_SESSION["email"];
+    
+        date_default_timezone_set('America/Sao_Paulo');
+        $Data_e_Hora = new DateTime();
+        $Data_e_Hora_formatada = $Data_e_Hora->format('Y-m-d H:i:s');
+        
+        $sql = "SELECT * FROM candidato WHERE email = '$email'";
+        $resultado = mysqli_query($conn, $sql);
+    
+        if($resultado){
+            $linha = mysqli_fetch_assoc($resultado);
+            $ID_candidato = $linha["ID_candidato"];
+            $nome = $linha["Nome"];
+            $tipo_usuario = $linha["Tipo_usuario"];
+        }
+    
+        $sql_A = "SELECT * FROM acesso_log_candidato WHERE FK_candidato_acesso = '$ID_candidato'";
+        $resultado_A = mysqli_query($conn, $sql_A);
+        
+        if(mysqli_num_rows($resultado_A) > 0){
+            $sql = "UPDATE acesso_log_candidato SET Data_e_Hora = '$Data_e_Hora_formatada', 2FA = '$resposta' WHERE FK_candidato_acesso = '$ID_candidato'";
+    
+            if(mysqli_query($conn, $sql)){
+            
+            }
+    
+        }else{
+        $sql = "INSERT INTO acesso_log_candidato (FK_candidato_acesso ,nome , Data_e_Hora, Tipo_usuario, 2FA) VALUES('$ID_candidato', '$nome', '$Data_e_Hora_formatada', '$tipo_usuario', '$resposta')";
+        }
+    
+        if(mysqli_query($conn, $sql)){
+    
+        }
+    
+     }
 }
 
 
 
+
+
 ?>
+
+
+
+
+
+
+
+
 
 
 
@@ -70,14 +118,14 @@ if(isset($_POST["submitEntrarAut"])){
         if($linha['Tipo_usuario'] == 'adm'){
         if($resposta === $resposta2FA){
             header("Location: dashboard_adm.php");
-            sleep(4);
+            sleep(2);
             exit;
         }
         
     }elseif($linha['Tipo_usuario'] == "candidato"){
         if($resposta === $resposta2FA){
             header("Location: tela_de_vagas.php");
-            sleep(4);
+            sleep(2);
             exit;
         }
         }

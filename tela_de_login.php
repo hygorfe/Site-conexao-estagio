@@ -70,7 +70,6 @@ if(isset($_POST['submitEntrar'])){
     class="senha required" placeholder="Senha">
     <span>A senha é Obrigatório</span>
     <?php 
-
     if(isset($_POST["submitEntrar"])){
     $erro = array("Email e/ou senha incorreta");
 
@@ -112,7 +111,7 @@ if(isset($_POST['submitEntrar'])){
     </p>
     <form class="form-redefinir" action="testRedefinirSenha.php" method="POST">
     <div class="box">
-    <input type="email" name="emailRedefinir" id="emailRedefinir" placeholder="Email">
+    <input type="email" name="emailRedefinirCandidato" id="emailRedefinir" placeholder="Email">
     <?php 
 
     

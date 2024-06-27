@@ -1,6 +1,31 @@
 const form = document.querySelector("form");
 const redefinirSenha = document.getElementById('redefinir_senha')
 const confirmarSenha = document.getElementById('confirmar_senha')
+const submitBtn = document.querySelector('.submit-btn');
+
+
+submitBtn.addEventListener('click', (e) =>{
+    if(redefinirSenha.value === ""){
+        setErro(redefinirSenha, 'A senha é obrigatória')
+    }else if(redefinirSenha.value.length < 8){
+        setErro(redefinirSenha, 'Senha deve ter no minimo 8 caracteres')
+    }else{
+        const formItem = redefinirSenha.parentElement;
+        formItem.className = "box"
+    }
+
+
+
+
+    if(confirmarSenha.value === ""){
+        setErro(confirmarSenha, "A confirmação de senha é obrigatória")
+    }else if(confirmarSenha.value !== redefinirSenha.value){
+        setErro(confirmarSenha, "Confirmação de senha deve ser igual senha")
+    }else{
+        const formItem = confirmarSenha.parentElement;
+        formItem.className = "box";
+    }
+})
 
 form.addEventListener('submit', (e) =>{
     
@@ -20,16 +45,16 @@ form.addEventListener('submit', (e) =>{
 })
 
 
-    redefinirSenha.addEventListener('keyup', () =>{
-        if(redefinirSenha.value === ""){
-            setErro(redefinirSenha, 'A senha é obrigatória')
-        }else if(redefinirSenha.value.length < 8){
-            setErro(redefinirSenha, 'Senha deve ter no minimo 8 caracteres')
-        }else{
-            const formItem = redefinirSenha.parentElement;
-            formItem.className = "box"
-        }
-    })
+redefinirSenha.addEventListener('keyup', () =>{
+    if(redefinirSenha.value === ""){
+    setErro(redefinirSenha, "A senha é obrigatório")
+    }else if(redefinirSenha.value.length < 8){
+        setErro(redefinirSenha, "A senha deve ter no minimo 8 caracteres")
+    }else{
+        const formItem = redefinirSenha.parentElement;
+        formItem.className = "box"
+    }
+  })
 
     confirmarSenha.addEventListener('keyup', () =>{
         if(confirmarSenha.value === ""){

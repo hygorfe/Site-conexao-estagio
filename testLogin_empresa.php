@@ -13,7 +13,7 @@ if(isset($_POST["submitEntrar"])){
     if(mysqli_num_rows($result) > 0){
         $_SESSION["emailEmpresa"] = $emailEmpresa;
         $_SESSION["senha"] = $senha;
-        header("Location: dashboard_empresa.php");
+        header("Location: tela_2FA_empresa.php");
         exit;
     }else{
         unset($_SESSION["emailEmpresa"]);
