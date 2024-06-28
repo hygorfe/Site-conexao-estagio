@@ -39,7 +39,7 @@ body.hide{
     z-index: 20;
     position: fixed;
     width: 100%;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     border-bottom: 1px solid var(---azul_bebe);
 }
 
@@ -68,9 +68,9 @@ body.hide{
     font-size: 14px;
 }
 
-.nav-acessibilidade .links-menu ul li .atalho{
+.nav-acessibilidade .links-menu ul li a{
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-weight: 600;
 }
 
@@ -79,11 +79,19 @@ body.hide{
     align-items: center;
     gap: 30px;
 }
+.nav-acessibilidade .fontes-contraste input[type="checkbox"]{
+    display: none;
+}
+
+.nav-acessibilidade .fontes-contraste label span{
+    cursor: pointer;
+}
+
 .nav-acessibilidade .fontes-contraste .fonts{
     display: flex;
     align-items: center;
     gap: 5px;
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-family: var(---font-principal);
     font-weight: 600;
 }
@@ -101,38 +109,49 @@ body.hide{
     align-items: center;
     gap: 5px;
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-weight: 600;
 }
 .nav-acessibilidade .fontes-contraste .contraste button{
     display: flex;
-    color: var(---background-body);
+    color: var(---azul_escuro);
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
-.nav-acessibilidade .fontes-contraste .contraste button span{
-    pointer-events: none;
-}
+
+
+
 
 .cabecalho{
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     padding: 0 88px;
+    margin-top: 43px;
     height: 9vh;
     width: 100%;
     text-decoration: none;
-    margin-top: 43px;
     text-shadow: 0px -1px 0px 3px #7c798e;
 }
+
+.cabecalho .logo{
+    width: 100%;
+    left: 50px;
+}
+.cabecalho .logoDark{
+    display: none;
+}
+
+
+    
 
 .cabecalho .button-entrar{
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-size: 14px;
     padding: 10px;
     background-color: var(---azul_bebe);
     border-radius: 5px;
@@ -142,27 +161,22 @@ body.hide{
     text-transform: uppercase;
 }
 
-.cabecalho .logo{
-    width: 100%;
-}
-
-.cabecalho .logo.dark{
+.cabecalho .btn-menu{
     display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
-
-.cabecalho .logo-black{
-    width: 81%;
-    display: none;
+.cabecalho .btn-menu span{
+    font-size: 30px;
+    color: var(---azul_escuro);
+    pointer-events: none;
 }
-.cabecalho .logo-black.light{
-    display: block;
-}
-
 
 .cabecalho .menu{
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     white-space: nowrap;
 }
@@ -172,28 +186,134 @@ body.hide{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    gap: 5px;
 }
-
-.cabecalho .menu ul li a{
+.cabecalho .menu button{
     display: flex;
-    color: #E0E0E0;
+    color: var(---azul_escuro);
     font-weight: bold;
     font-family: "Assistant", sans-serif;
     transition: all .5s ease-in-out;
     padding: 8px 20px;
     border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    cursor: pointer;
 }
+
+.cabecalho .menu ul li a{
+    display: flex;
+    color: var(---azul_escuro);
+    font-weight: bold;
+    font-family: "Assistant", sans-serif;
+    transition: all .2s ease;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+
+
+
+.cabecalho .logado{
+    display: flex;
+    width: 200px;
+    position: relative;
+}
+.cabecalho .logado .circle{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    pointer-events: none;
+}
+.cabecalho .logado .circle img{
+    border: 2px solid var(---azul_escuro);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.cabecalho .logado .logadoBtn{
+    display: flex;
+    z-index: 10;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px;
+    height: 100%;
+    cursor: pointer;
+    color: var(---azul_escuro);
+    font-family: var(---font-principal);
+    font-size: 20px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    border-left: 2px solid var(---azul_bebe);
+   
+}
+.cabecalho .logado .logadoBtn span{
+    pointer-events: none;
+}
+.cabecalho .logado .logadoBtn p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    padding: 5px;
+    margin-left: 40px;
+}
+
+
+.cabecalho .logado .dropMenu{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 55px;
+    width: 100%;
+    background-color: #fff;
+    row-gap: 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 0px 3px 0px #cccccc78;
+}
+.cabecalho .logado .dropMenu.drop{
+    display: flex;
+}
+
+.cabecalho .logado .dropMenu a{
+    font-family: var(---font-principal);
+    font-weight: 600;
+    padding: 5px;
+    color: var(---azul_escuro);
+    font-size: 18px;
+    transition: all .3s;
+    font-weight: 700;
+}
+.cabecalho .logado .dropMenu a:hover{
+    background-color: #e9e9e9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+
+
+
 
 
 /* Hover e focus */
 
-.cabecalho .menu ul li a:hover{
-    color: var(---azul-bebe);
+.cabecalho .menu ul li a:hover, .cabecalho .menu button:hover {
+    color: var(---azul_bebe);
 }
-.cabecalho .menu ul li a:focus{
+.cabecalho .menu ul li a:focus, .cabecalho .menu button:focus{
     background-color: #7c798e;
+    color: var(---azul_escuro);
 }
+
+/* Fim Hover e focus */
 
 /* Fim Hover e focus */
 
@@ -204,7 +324,7 @@ body.hide{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     height: 10em;
     margin-bottom: 8em;
 }
@@ -217,7 +337,7 @@ body.hide{
     margin-bottom: 10px;
     text-transform: capitalize;
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: var(---azul_escuro);
 
 }
 
@@ -231,8 +351,8 @@ body.hide{
     padding: 6px 20px;
     border-radius: 20px;
     font-family: var(---font-principal);
-    border: 2px solid var(---background-body);
-    color: var(---background-body);
+    border: 2px solid var(---azul_escuro);
+    color: var(---azul_escuro);
     font-weight: bold;
     cursor: pointer;
     transition: .5s all;
@@ -472,12 +592,12 @@ body.hide{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     width: 100%;
     height: 122px;
     row-gap: 10px;
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-weight: 600;
 }
 
@@ -498,8 +618,21 @@ body.hide{
 -moz-filter: brightness(0%) contrast(1000%);
 }
 
-.content .sidebar-menu{
-    display: none;
+.sidebar-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #fff;
+    width: 0;
+    max-width: 250px;
+    transition: width .4s ease;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
 
 
@@ -518,31 +651,12 @@ body.hide{
     pointer-events: none;
 }
 .cabecalho .logado .circle img{
-    border: 2px solid #fff;
+    border: 2px solid var(---azul_escuro);
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
 
-.cabecalho .logado .logadoBtn{
-    display: flex;
-    z-index: 10;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    padding: 5px;
-    height: 100%;
-    cursor: pointer;
-    color: #fff;
-    font-family: var(---font-principal);
-    font-size: 20px;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    font-weight: 700;
-    border-left: 2px solid var(---azul_bebe);
-   
-}
 .cabecalho .logado .logadoBtn span{
     pointer-events: none;
 }
@@ -586,6 +700,97 @@ body.hide{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
+}
+
+.sidebar-menu .nav-menu a:hover{
+    background-color: #a8a4bb3f;
+    color: var(---azul_escuro);
+    border-radius: 5px;
+}
+.sidebar-menu .nav-menu .color-blue:hover{
+    color: var(---azul_bebe);
+    background-color: transparent;
+}
+
+/* Fim  Hover, Focus, Active */
+
+
+.modal-sidebar{
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #00000054;
+}
+
+.modal-sidebar.show{
+    display: flex;
+}
+
+
+
+
+.sidebar-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #fff;
+    width: 0;
+    max-width: 250px;
+    transition: width .4s ease;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+
+.sidebar-menu .btn-close{
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+}
+.sidebar-menu .btn-close span{
+    pointer-events: none;
+}
+.sidebar-menu .nav-menu{
+    display: flex;
+    row-gap: 5px;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    line-height: 180%;
+    margin: 50px 0;
+}
+.sidebar-menu .nav-menu a{
+    font-family: var(---font-principal);
+    font-size: 20px;
+    color: var(---azul_escuro);
+    padding: 10px;
+    margin: 0 20px;
+    white-space: nowrap;
+}
+.sidebar-menu .nav-menu .wrap, .sidebar-menu .nav-menu .redes{
+    white-space: wrap;
+}
+
+
+
+/* Interatividade */
+.sidebar-menu.open{
+    width: 250px;
+    max-width: 300px;
+    z-index: 20;
 }
 
 
@@ -653,6 +858,101 @@ body.hide{
 }
 
 
+
+.dark, 
+.dark header{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+}
+
+.dark .cabecalho .logado .logadoBtn{
+    color: var(---background-body);
+}
+
+.dark .cabecalho .menu button{
+    color: var(---background-body);
+}
+
+.dark .cabecalho .menu ul li a{
+    color: var(---background-body);
+}
+
+.dark, .dark body{
+    background-color: var(---background-body);
+    color: #000;
+}
+
+
+.dark .footer{
+    background-color: var(---azul_escuro);
+    color: #fff;
+}
+
+.dark .nav-acessibilidade{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .links-menu ul li a{
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .fontes-contraste .fonts{
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .fontes-contraste .contraste{
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .fontes-contraste .contraste button{
+    color: var(---background-body);
+}
+
+.dark .logoDark{
+    display: flex;
+    width: 124%;
+}
+
+.dark .logo{
+    display: none;
+}
+
+
+
+.dark .sidebar-menu{
+    background-color: var(---azul_escuro);
+}
+
+.dark .sidebar-menu .nav-menu a{
+    color: var(---background-body);
+}
+
+
+.dark .cabecalho .btn-menu span{
+    color: var(---azul_bebe);
+}
+
+
+.dark .content .cabecalho-container{
+    background-color:var(---azul_escuro);
+}
+
+.dark .content .cabecalho-container h2{
+    color: var(---background-body);
+}
+
+.dark .content .cabecalho-container .habilidade-skill{
+    color: var(---background-body);
+}
+
+
+.dark .content .cabecalho-container .skills{
+    color: var(---background-body);
+    border-color: var(---background-body);
+}
+
+
 /* Responsividade */
 /* Mobile */
 
@@ -665,14 +965,28 @@ body.hide{
 
     }
 
-    .cabecalho .menu{
+    .cabecalho .btn-menu{
         display: flex;
+    }
+
+    .cabecalho .menu{
+        display: none;
         width: 100%;
         justify-content: end;
     }
 
+
     .cabecalho .logo{
-        width: 100%;
+        position: relative;
+        width: 85%;
+        left: 3%;
+    }
+
+
+    .dark .logoDark{
+        position: relative;
+        width: 110%;
+        left: -77%;
     }
     .cabecalho .button-entrar{
         padding: 10px;
@@ -682,6 +996,10 @@ body.hide{
 
     .righ-container .menu-mobile{
         display: flex;
+    }
+
+    .cabecalho .logado{
+        display: none;
     }
 
     .nav-acessibilidade{
@@ -755,112 +1073,6 @@ body.hide{
     .content .alert-vagas .email-button input[type="email"], .content .alert-vagas .email-button input[type="submit"]{
         width: 100%;
     }
-
-
-     /* menu mobile  side-bar-menu */
-    .content .sidebar-menu{
-        display: flex;
-        position: fixed;
-        right: -300px;
-        transition: right .3s ease-out;
-        top: 0;
-        background-color:var(---azul_escuro);
-        width: 300px;
-        height: 100vh;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        row-gap: 40px;
-        flex-direction: column;
-    }
-
-    .content .modal-sidebar{
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 5;
-        width: 100%;
-        height: 1000%;
-        background-color: #2e2e2e3d;
-    }
-
-    .content .sidebar-menu .btn-close{
-        position: absolute;
-        right: 10px;
-        top: 50px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
-    .content .sidebar-menu .btn-close span{
-        pointer-events: none;
-        color: var(---background-body);
-    }
-
-    .content .sidebar-menu .button-close span{
-        pointer-events: none;
-        font-size: 25px;
-    }
-    .content .sidebar-menu .nav-menu{
-        display: flex;    
-        flex-direction: column;
-        row-gap: 20px;
-        white-space: nowrap;
-    }
-
-    .content .sidebar-menu .nav-menu  a{
-        
-        font-family: var(---font-principal);
-        color: var(---background-body);
-        font-weight: 600;
-        transition: .2s all;
-        font-size: 16px;
-    }
-
-
-    .content .cabecalho-container .habilidade-skill, .content .cabecalho-container h2{
-        font-size: 18px;
-    }
-
-
-    .content .detalhes-vaga .sobre_vagas .descricao{
-        width: 100%;
-    }
-
-    .content .detalhes-vaga .button-candidatar-block{
-        width: 310px;
-    }
-    
-
-    .button-entrar-cadastro{
-        width: 250px;
-    }
-
-    .cabecalho .menu ul{
-        display: none;
-    }
-
-    
-
-    /* Interatividade */
-    .content .sidebar-menu.open{
-        right: 0;
-    }
-
-    .content .modal-sidebar.show{
-        display: flex;
-    }
-    /* Fim Interatividade */
-
-     /* Hover */
-     .content .sidebar-menu .nav-menu  a:hover{
-        transition: .3s all;
-        color: #e0e0e046;
-    }
-    /* Fim Hover */
-    /* Fim menu Mobile */
 }
 
 /* Tablets */
@@ -958,89 +1170,9 @@ body.hide{
         width: 100%;
     }
 
-
-     /* menu mobile  side-bar-menu */
-    .content .sidebar-menu{
-        display: flex;
-        position: fixed;
-        right: -300px;
-        transition: right .3s ease-out;
-        top: 0;
-        background-color:var(---azul_escuro);
-        width: 300px;
-        height: 100vh;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        row-gap: 40px;
-        flex-direction: column;
-    }
-
-    .content .modal-sidebar{
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 5;
-        width: 100%;
-        height: 1000%;
-        background-color: #2e2e2e3d;
-    }
-
-    .content .sidebar-menu .btn-close{
-        position: absolute;
-        right: 10px;
-        top: 50px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
-    .content .sidebar-menu .btn-close span{
-        pointer-events: none;
-        color: var(---background-body);
-    }
-
-    .content .sidebar-menu .button-close span{
-        pointer-events: none;
-        font-size: 25px;
-    }
-    .content .sidebar-menu .nav-menu{
-        display: flex;    
-        flex-direction: column;
-        row-gap: 20px;
-        white-space: nowrap;
-    }
-
-    .content .sidebar-menu .nav-menu  a{
-        
-        font-family: var(---font-principal);
-        color: var(---background-body);
-        font-weight: 600;
-        transition: .2s all;
-        font-size: 16px;
-    }
-
-    
-
-    /* Interatividade */
-    .content .sidebar-menu.open{
-        right: 0;
-    }
-
-    .content .modal-sidebar.show{
-        display: flex;
-    }
-    /* Fim Interatividade */
-
-     /* Hover */
-     .content .sidebar-menu .nav-menu  a:hover{
-        transition: .3s all;
-        color: #e0e0e046;
-    }
-    /* Fim Hover */
-    /* Fim menu Mobile */
-
 }
 
  /* Fim Resposividade */
+
+
+

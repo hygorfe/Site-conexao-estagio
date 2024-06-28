@@ -11,7 +11,7 @@ body{
     background-color: var(---azul_escuro);
     display: flex;
     justify-content: center;
-    background-image: url(/src/img/image-4.svg);
+    background-image: url(src/img/image-4.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;

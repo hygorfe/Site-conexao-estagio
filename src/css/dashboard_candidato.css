@@ -24,7 +24,7 @@ body{
     justify-content: center;
     position: relative;
     align-items: center;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     padding: 0 88px;
     height: 60px;
     width: 100%;
@@ -47,6 +47,15 @@ body{
     transition: .2s all;
 }
 
+
+.cabecalho .logoBlack{
+    display: flex;
+    width: 80%;
+}
+
+.cabecalho .logo{
+    display: none;
+}
 .cabecalho .btn-menu-mobile span{
     color: var(---azul_bebe);
     pointer-events: none;
@@ -70,7 +79,7 @@ body{
     width: 60px;
     max-width: 250px;
     transition: width .4s ease;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     height:calc(100vh - 60px);
     padding: 50px 0 0px;
     overflow: hidden;
@@ -97,7 +106,7 @@ body{
 }
 
 #content .sidebar .btn-menu span{
-    color: var(---azul_bebe);
+    color: var(---azul_escuro);
     pointer-events: none;
 }
 
@@ -118,7 +127,7 @@ body{
     transition: .2s all;
 }
 .sidebar .close-btn span{
-    color: var(---azul_bebe);
+    color: var(---azul_escuro);
     pointer-events: none;
 }
 
@@ -157,7 +166,7 @@ body{
     flex-direction: column;
     row-gap: 5px;
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: #000;
     font-weight: 600;
 
 }
@@ -174,6 +183,8 @@ body{
     padding: 20px 0;
     border-bottom: 2px solid var(---background-body);
 }
+
+
 .sidebar .button-container .tab-btn, .btn-logout{
     display: flex;
     align-items: center;
@@ -191,13 +202,15 @@ body{
     font-size: 28px;
     margin-right: 10px;
     margin-left: 10px;
-    color: var(---azul_bebe);
+    color: var(---azul_escuro);
+
 }
 .sidebar .button-container .tab-btn .icon-title, .btn-logout .icon-title{
     font-family: var(---font-principal);
     font-size: 16px;
     color: var(---background-body);
     font-weight: 600;
+    color: #000;
     text-transform: uppercase;
 }
 
@@ -205,7 +218,7 @@ body{
 
 /* Hover, Focus, active */
 .sidebar .button-container .tab-btn:hover, .btn-logout:hover{
-    background-color: #ffffff37;
+    background-color: #2b2a2a37;
 }
 #content .sidebar .btn-menu:active{
     background-color: #e0e0e060;
@@ -495,6 +508,74 @@ display: none;
 
 
 
+/* dark */
+
+
+
+.dark, 
+.dark header{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+}
+
+.dark .cabecalho .logado .logadoBtn{
+    color: var(---background-body);
+}
+
+.dark, .dark body{
+    background-color: var(---background-body);
+    color: #000;
+}
+
+
+.dark #content .sidebar{
+    background-color: var(---azul_escuro);
+}
+
+.dark #content .sidebar .btn-menu span{
+    color: var(---azul_bebe);
+}
+.dark .sidebar .close-btn span{
+    color: var(---azul_bebe);
+}
+
+.dark .sidebar .profile .name-email{
+    color: var(---background-body);
+}
+
+.dark .sidebar .button-container .tab-btn span{
+    color: var(---azul_bebe);
+}
+
+.dark .btn-logout span{
+    color: var(---azul_bebe);
+}
+
+.dark .sidebar .button-container .tab-btn .icon-title{
+    color: var(---background-body);
+}
+
+.dark .btn-logout .icon-title{
+    color: var(---background-body);
+}
+
+.dark .sidebar .button-container .tab-btn:hover{
+    background-color: #e0e0e036;
+}
+
+.dark .btn-logout:hover {
+    background-color: #e0e0e036;
+}
+
+
+.dark .cabecalho .logoBlack{
+    display: none;
+}
+
+.dark .cabecalho .logo{
+    display: flex;
+    width: 100%;
+}
 
 
 /* Responsividade */

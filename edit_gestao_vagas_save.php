@@ -16,19 +16,20 @@ if(isset($_POST["submitAtualizar"])){
     $descEmpresa = mysqli_escape_string($conn, $_POST["desc-empresa"]);
     $atividadeResponsabilidade = mysqli_escape_string($conn, $_POST["atividade-responsabilidade"]);
     $requisitos = mysqli_escape_string($conn, $_POST["Requisitos"]);
+    
 
     date_default_timezone_set('America/Sao_Paulo');
     $data_publicacao = new DateTime();
-    $data_publicacao_formatada = $data_publicacao->format('Y-m-d H:i:s');
+    $data_publicacao_formatada = $data_publicacao->format('Y-m-d');
 
-    
-    $sql = "UPDATE cadastro_vagas SET skill_vaga = '$skillVaga', titulo_vaga = '$tituloVaga', tecnologias = '$tecnologias', data_encerramento = '$dataEncerramento', nome_empresa = '$nomeEmpresa', tamanho_empresa = '$tamanhoEmpresa', modelo_trabalho = '$modeloTrabalho', salario = '$salario', tipo_contrato = '$tipoContrato', descricao = '$descEmpresa', atividades = '$atividadeResponsabilidade', requisitos = '$requisitos' data_publicacao = '$data_publicacao_formatada' WHERE ID_CadastroVagas = '$ID_CadastroVagas'";
-    
+    $sql = "UPDATE cadastro_vagas SET skill_vaga = '$skillVaga', titulo_vaga = '$tituloVaga', tecnologias = '$tecnologias', data_encerramento = '$dataEncerramento', nome_empresa = '$nomeEmpresa', tamanho_empresa = '$tamanhoEmpresa', modelo_trabalho = '$modeloTrabalho', salario = '$salario', tipo_contrato = '$tipoContrato', descricao = '$descEmpresa', atividades = '$atividadeResponsabilidade', requisitos = '$requisitos', data_publicacao = '$data_publicacao_formatada' WHERE ID_CadastroVagas = '$ID_CadastroVagas'";
+
     if(mysqli_query($conn, $sql)){
-    header("Location: tela_gerenciamento_vagas.php");
+    header("Location: tela_gestao_vagas.php");
     exit;
     }
 }
+
 
 
 

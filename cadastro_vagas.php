@@ -17,6 +17,11 @@ if(isset($_POST["submitCadastrar"])){
     $descEmpresa = mysqli_escape_string($conn, $_POST["desc-empresa"]);
     $atividadeResponsabilidade = mysqli_escape_string($conn, $_POST["atividade-responsabilidade"]);
     $requisitos = mysqli_escape_string($conn, $_POST["Requisitos"]);
+
+    date_default_timezone_set('America/Sao_Paulo');
+    $data_publicacao = new DateTime();
+    $data_publicacao_formatada = $data_publicacao->format('Y-m-d');
+    
     
 
     $sql = "SELECT ID_empresa_cad FROM empresa_cad WHERE email_empresa = '$emailEmpresa'";
@@ -27,7 +32,9 @@ if(isset($_POST["submitCadastrar"])){
         $ID_empresa_cad = $linha["ID_empresa_cad"];
 
 
-    $sql = "INSERT INTO cadastro_vagas (FK_empresa_vagas, skill_vaga, titulo_vaga, tecnologias, data_encerramento, nome_empresa, tamanho_empresa, modelo_trabalho, salario, tipo_contrato, descricao, atividades, requisitos) VALUES('$ID_empresa_cad', '$skillVaga', '$tituloVaga', '$tecnologias', '$dataEncerramento', '$nomeEmpresa', '$tamanhoEmpresa', '$modeloTrabalho', '$salario', '$tipoContrato', '$descEmpresa', '$atividadeResponsabilidade', '$requisitos')";
+
+
+    $sql = "INSERT INTO cadastro_vagas (FK_empresa_vagas, skill_vaga, titulo_vaga, tecnologias, data_encerramento, nome_empresa, tamanho_empresa, modelo_trabalho, salario, tipo_contrato, descricao, atividades, requisitos, data_publicacao) VALUES('$ID_empresa_cad', '$skillVaga', '$tituloVaga', '$tecnologias', '$dataEncerramento', '$nomeEmpresa', '$tamanhoEmpresa', '$modeloTrabalho', '$salario', '$tipoContrato', '$descEmpresa', '$atividadeResponsabilidade', '$requisitos', '$data_publicacao_formatada')";
 
     if(mysqli_query($conn, $sql)){
 

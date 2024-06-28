@@ -68,6 +68,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
     menu
     </span> 
     </button>
+    <a href="tela_de_vagas.php"><img class="logoBlack" src="src/img/Logo_black.svg" alt="logo Conexão Estagios"></a>
     <a href="tela_de_vagas.php"><img class="logo" src="src/img/logo.svg" alt="logo Conexão Estagios"></a>
     
     </header>

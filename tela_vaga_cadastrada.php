@@ -88,6 +88,166 @@ if((isset($_SESSION['email']) == true) && ((isset($_SESSION['senha']) == true)))
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="src/css/tela_vaga_cadastrada.css">
     <title>Conexão Estagios - Site de Estagios na área de TI</title>
+    <script language='javascript'>
+         var min=8;
+        
+        var max=20;
+        
+        function changeFontSize(opcao) {
+        
+    
+        
+           var div = document.getElementsByTagName('div');
+        
+           // percorre-os
+        
+           for(i = 0; i < div.length; i++) {
+        
+        
+              if(div[i].style.fontSize) {
+        
+                 var s = parseInt(div[i].style.fontSize.replace("px",""));
+        
+              } else {
+        
+                 var s = 12;
+        
+              }
+        
+        
+              if (opcao=='+') {
+        
+                if(s!=max) { s += 1; }
+        
+             } else {
+        
+                if(s!=min) { s -= 1; }
+        
+             }
+        
+              div[i].style.fontSize = s+"px"
+        
+           }
+        
+           var h2 = document.getElementsByTagName('h2');
+
+           for(i = 0; i < h2.length; i++) {
+        
+        
+        if(h2[i].style.fontSize) {
+  
+           var s = parseInt(h2[i].style.fontSize.replace("px",""));
+  
+        } else {
+  
+           var s = 12;
+  
+        }
+  
+        if (opcao=='+') {
+  
+          if(s!=max) { s += 1; }
+  
+       } else {
+  
+          if(s!=min) { s -= 1; }
+  
+       }
+  
+        h2[i].style.fontSize = s+"px"
+  
+     }
+
+     var h3 = document.getElementsByTagName('h3');
+
+        for(i = 0; i < h3.length; i++) {
+
+
+        if(h3[i].style.fontSize) {
+
+        var s = parseInt(h3[i].style.fontSize.replace("px",""));
+
+        } else {
+
+        var s = 12;
+
+        }
+
+        if (opcao=='+') {
+
+        if(s!=max) { s += 1; }
+
+        }else {
+
+        if(s!=min) { s -= 1; }
+
+        }
+
+        h3[i].style.fontSize = s+"px"
+
+        }
+
+     var span = document.getElementsByTagName('span');
+
+        for(i = 0; i < span.length; i++) {
+
+
+        if(span[i].style.fontSize) {
+
+        var s = parseInt(span[i].style.fontSize.replace("px",""));
+
+        } else {
+
+        var s = 12;
+
+        }
+
+        if (opcao=='+') {
+
+        if(s!=max) { s += 1; }
+
+        } else {
+
+        if(s!=min) { s -= 1; }
+
+        }
+
+        span[i].style.fontSize = s+"px"
+
+        }
+
+    var p = document.getElementsByTagName('p');
+
+        for(i = 0; i < p.length; i++) {
+
+
+        if(p[i].style.fontSize) {
+
+        var s = parseInt(p[i].style.fontSize.replace("px",""));
+
+        } else {
+
+        var s = 12;
+
+        }
+
+        if (opcao=='+') {
+
+        if(s!=max) { s += 1; }
+
+        } else {
+
+        if(s!=min) { s -= 1; }
+
+        }
+
+        p[i].style.fontSize = s+"px"
+
+        }
+
+
+        }
+    </script>
     <script src="src/JS/tela-vagas-cadastradas.js" defer></script>
 </head>
 <body>
@@ -95,76 +255,85 @@ if((isset($_SESSION['email']) == true) && ((isset($_SESSION['senha']) == true)))
     <!-- Acessibilidade -->
    <div class="nav-acessibilidade">
 
-    <div class="links-menu">
-    <ul>
-    <li><span>C</span><a class="atalho" href="#content">Ir para o conteúdo</a></li>
-    <li><span>M</span><a class="atalho" href="#menu">Ir para o menu</a></li>
-    <li><span>R</span><a class="atalho" href="#footer">Ir para o rodapé</a></li>
-    </ul>
+<div class="links-menu">
+<ul>
+<li><span>C</span><a href="#content">Ir para o conteúdo</a></li>
+<li><span>M</span><a href="#menu">Ir para o menu</a></li>
+<li><span>R</span><a href="#footer">Ir para o rodapé</a></li>
+</ul>
+</div>
+<div class="fontes-contraste">
+<div class="fonts">
+<p>Fontes</p>
+<button class="menos">
+    <a href="javascript:void(changeFontSize('-'))">A-</a>
+</button>
+
+<button class="mais">
+    <a href="javascript:void(changeFontSize('+'))">A+</a>
+ </button>
+</div>
+<div class="contraste">
+<p>Contraste</p>
+
+<input type="checkbox" name="change-Theme" id="change-Theme">
+<label for="change-Theme">
+<span class="material-symbols-outlined">
+contrast
+</span>
+</label>
+</div>
+</div>
+</div>
+<header class="cabecalho">
+<button class="btn-menu">
+<span class="material-symbols-outlined">
+menu
+</span>
+</button>
+<a href="tela_de_vagas.php"><img class="logo" src="src/img/Logo_black.svg" alt="logo Conexão Estagios"></a>
+<a href="tela_de_vagas.php"><img class="logoDark" src="src/img/Logo.svg" alt="logo Conexão Estagios"></a>
+
+<nav class="menu" id="menu">
+<ul>
+<button class="btn-vagas">Vagas Abertas</button>
+<li><a href="#alerta_vagas">Alerta de Vagas</a></li>
+</ul>
+</nav>
+
+<?php
+if(!isset($_SESSION['email']) && (!isset($_SESSION['senha']))){
+    echo "<a class=\"button-entrar\" href=\"tela_de_login.php\">Entrar</a>";
+    $imgProfile = "";
+}else{
+    if(isset($linha) && $linha['img_profile']){
+        $imgProfile = $linha['img_profile'];
+    }else{
+        $imgProfile = ""; 
+    }
+
+    echo"
+    <div class=\"logado\">
+    <button class=\"logadoBtn\">
+    <div class=\"circle\">
+    <img src=\"{$imgProfile}\">
     </div>
-    <div class="fontes-contraste">
-    <div class="fonts">
-    <p>Fontes</p>
-    <button class="menos">
-    A-
-    </button>
-    <button class="mais">
-    A+
-    </button>
-    </div>
-    <div class="contraste">
-    <p>Contraste</p>
-    <button class="btn-contraste" title="Contraste">
-    <span class="material-symbols-outlined">
-    contrast
+    <p>$nome $sobrenome</p>
+    <span class=\"material-symbols-outlined\">
+    keyboard_arrow_down
     </span>
     </button>
-    </div>
-    </div>
-   </div>
-   
-    <header class="cabecalho">
-    <a href="tela_de_vagas.php"><img class="logo" src="src/img/logo.svg" alt="logo Conexão Estagios"></a>
-    <a href="tela_de_vagas.php"><img class="logo-black" src="src/img/Logo_black.svg" alt="logo Conexão Estagios"></a>
-    <nav class="menu" id="menu">
-    <ul>
-    <li><a class="menu-link" href="tela_de_vagas.php">Vagas Abertas</a></li>
-    <li><a class="menu-link" href="#alerta_vagas">Alerta de Vagas</a></li>
-    </ul>
 
-    <?php
-    if(!isset($_SESSION['email']) && (!isset($_SESSION['senha']))){
-        echo "<a class=\"button-entrar\" href=\"tela_de_login.php\">Entrar</a>";
-        $imgProfile = "";
-    }else{
-        if(isset($linha) && $linha['img_profile']){
-            $imgProfile = $linha['img_profile'];
-        }else{
-            $imgProfile = ""; 
-        }
+    <div class=\"dropMenu\">
+    <a href=\"dashboard_candidato.php\">Meu Perfil</a>
+    <a href=\"Sair.php\">Sair</a>
+    </div>
 
-        echo"
-        <div class=\"logado\">
-        <button class=\"logadoBtn\">
-        <div class=\"circle\">
-        <img src=\"{$imgProfile}\">
-        </div>
-        <p>$nome $sobrenome</p>
-        <span class=\"material-symbols-outlined\">
-        keyboard_arrow_down
-        </span>
-        </button>
-    
-        <div class=\"dropMenu\">
-        <a href=\"dashboard_candidato.php\">Meu Perfil</a>
-        <a href=\"Sair.php\">Sair</a>
-        </div>
-    
-        </div>";
-    }
+    </div>";
+}
 ?>
-    </nav>
-    </header>
+
+</header>
     <main class="content" id="content">
     <section class="cabecalho-container">
     <p class="habilidade-skill"><?php echo $skillVagas;?></p>
@@ -195,25 +364,36 @@ if((isset($_SESSION['email']) == true) && ((isset($_SESSION['senha']) == true)))
     ?>
 
      <!-- Sidebar menu -->
-     <div class="modal-sidebar"></div>
-     <aside class="sidebar-menu">
-        <button class="btn-close">
-        <span class="material-symbols-outlined">
-        close
-        </span>
-        </button>
-        <nav class="nav-menu">
-        <a href="tela_de_vagas.php">Vagas Abertas</a>
-        <a href="#alerta_vagas">Alerta de vagas</a>
-        <a href="tela_de_cadastro.php">Fazer Cadastro</a>
-        <a href="tela_de_login.php">Entrar</a>
-        </nav>
-        <div class="redes">
-        <span><img src="src/img/instagram 1.svg" alt="logo instagram"></span>
-        <span><img src="src/img/linkedin 1.svg" alt="logo linkedin"></span>
-        <span><img src="src/img/youtube 1.svg" alt="logo youtube"></span>
-        </div>
-        </aside>
+    <div class="modal-sidebar"></div>
+    <aside class="sidebar-menu">
+    <button class="btn-close">
+    <span class="material-symbols-outlined">
+    close
+    </span>
+    </button>
+    <nav class="nav-menu">
+    <?php 
+    if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
+        echo '<a class="color-blue" href="dashboard_candidato.php">Meu perfil</a>';
+        echo '<a href="tela_de_vagas.php">Vagas abertas</a>';
+        echo '<a href="#alerta_vagas">Alerta de vagas</a>';
+        echo '<a href="Sair.php">Sair</a>';
+    }
+    else{
+        echo '<a class="color-blue" href="tela_de_vagas.php">Vagas Abertas</a>';
+        echo '<a href="#alerta_vagas">Alerta de vagas</a>';
+        echo '<a href="tela_de_cadastro.php">Fazer Cadastro</a>';
+        echo '<a href="tela_de_login.php">Entrar</a>';
+    }
+    
+    ?>
+    </nav>
+    <div class="redes">
+    <span><img src="src/img/instagram 1.svg" alt="logo instagram"></span>
+    <span><img src="src/img/linkedin 1.svg" alt="logo linkedin"></span>
+    <span><img src="src/img/youtube 1.svg" alt="logo youtube"></span>
+    </div>
+    </aside>
 
     <section class="detalhes-vaga">
     <div class="empresa">
@@ -361,6 +541,9 @@ if((isset($_SESSION['email']) == true) && ((isset($_SESSION['senha']) == true)))
             modalAplicao.classList.remove('open')
         }
     })
+
+
+        
 
 </script>
 </html>

@@ -66,42 +66,6 @@ document.addEventListener('click', (e) =>{
 
 
 
-
-
-// Modal filtro
-
-const filterModal = () =>{
-    const modalFiltro = document.querySelector('.modal-filtro')
-    const filtrosModal = document.querySelector('.filtros-modal')
-    const btnFilter = document.querySelector('.btn-filter')
-    const filtros = document.querySelector('.filtros')
-
-    
-
-    document.addEventListener('click', (e) =>{
-        const el = e.target;
-        
-        // const localizacaoFiltro = document.querySelector('#localizacao_filtro').addEventListener('click', (e) =>{
-        //     e.stopPropagation();
-        // })
-    
-        if(el.classList.contains('btn-filter')){
-            filtrosModal.classList.add('open')
-            modalFiltro.classList.add('active')
-            document.body.classList.add('active')
-            
-
-        }else if(!filtrosModal.contains(el)) {
-            filtrosModal.classList.remove('open')
-            modalFiltro.classList.remove('active')
-            document.body.classList.remove('active')
-            
-        }
-    })
-}
-filterModal();
-
-
 // Botao de check
 const checkedButton = () =>{
     const modelobtn = document.querySelectorAll('.modelo')
@@ -117,4 +81,33 @@ const checkedButton = () =>{
 checkedButton()
 
 
-// Teste
+
+// darkmode
+
+const btnchangeTheme = document.querySelector('#change-Theme');
+
+function toggleDarkMode (){
+    document.body.classList.toggle('dark');
+}
+
+function loadTheme(){
+    const darkmode = localStorage.getItem("dark")
+
+    if(darkmode){
+        toggleDarkMode();
+    }
+}
+
+loadTheme();
+
+btnchangeTheme.addEventListener("change", function (){
+    toggleDarkMode();
+
+    localStorage.removeItem("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("dark", 1);
+    }
+})
+
+

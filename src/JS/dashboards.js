@@ -78,3 +78,18 @@ document.addEventListener('click', (e) =>{
       modalSidebar.classList.remove('open')
    }
 })
+
+
+function toggleDarkMode (){
+   document.body.classList.toggle('dark');
+}
+
+function loadTheme(){
+   const darkmode = localStorage.getItem("dark")
+
+   if(darkmode){
+       toggleDarkMode();
+   }
+}
+
+loadTheme();

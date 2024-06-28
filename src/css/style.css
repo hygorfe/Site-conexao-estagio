@@ -34,7 +34,7 @@ body.block{
     z-index: 20;
     position: fixed;
     width: 100%;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     border-bottom: 1px solid var(---azul_bebe);
 }
 
@@ -65,7 +65,7 @@ body.block{
 
 .nav-acessibilidade .links-menu ul li a{
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-weight: 600;
 }
 
@@ -74,11 +74,19 @@ body.block{
     align-items: center;
     gap: 30px;
 }
+.nav-acessibilidade .fontes-contraste input[type="checkbox"]{
+    display: none;
+}
+
+.nav-acessibilidade .fontes-contraste label span{
+    cursor: pointer;
+}
+
 .nav-acessibilidade .fontes-contraste .fonts{
     display: flex;
     align-items: center;
     gap: 5px;
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-family: var(---font-principal);
     font-weight: 600;
 }
@@ -96,12 +104,12 @@ body.block{
     align-items: center;
     gap: 5px;
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-weight: 600;
 }
 .nav-acessibilidade .fontes-contraste .contraste button{
     display: flex;
-    color: var(---background-body);
+    color: var(---azul_escuro);
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -115,7 +123,7 @@ body.block{
     position: relative;
     justify-content: space-between;
     align-items: center;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     padding: 0 88px;
     margin-top: 43px;
     height: 9vh;
@@ -126,7 +134,14 @@ body.block{
 
 .cabecalho .logo{
     width: 100%;
+    left: 50px;
 }
+.cabecalho .logoDark{
+    display: none;
+}
+
+
+    
 
 .cabecalho .button-entrar{
     display: flex;
@@ -149,7 +164,7 @@ body.block{
 }
 .cabecalho .btn-menu span{
     font-size: 30px;
-    color: var(---azul_bebe);
+    color: var(---azul_escuro);
     pointer-events: none;
 }
 
@@ -170,7 +185,7 @@ body.block{
 }
 .cabecalho .menu button{
     display: flex;
-    color: #E0E0E0;
+    color: var(---azul_escuro);
     font-weight: bold;
     font-family: "Assistant", sans-serif;
     transition: all .5s ease-in-out;
@@ -184,7 +199,7 @@ body.block{
 
 .cabecalho .menu ul li a{
     display: flex;
-    color: #E0E0E0;
+    color: var(---azul_escuro);
     font-weight: bold;
     font-family: "Assistant", sans-serif;
     transition: all .2s ease;
@@ -208,7 +223,7 @@ body.block{
     pointer-events: none;
 }
 .cabecalho .logado .circle img{
-    border: 2px solid #fff;
+    border: 2px solid var(---azul_escuro);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -223,7 +238,7 @@ body.block{
     padding: 5px;
     height: 100%;
     cursor: pointer;
-    color: #fff;
+    color: var(---azul_escuro);
     font-family: var(---font-principal);
     font-size: 20px;
     background-color: transparent;
@@ -628,7 +643,7 @@ body.active{
     align-items: center;
     justify-content: space-between;
     position: relative;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     width: 0;
     max-width: 250px;
     transition: width .4s ease;
@@ -637,7 +652,6 @@ body.active{
     top: 0;
     left: 0;
     overflow: hidden;
-    /* z-index: 10; */
 }
 
 
@@ -647,7 +661,7 @@ body.active{
     background-color: transparent;
     outline: none;
     border: none;
-    color: var(---background-body);
+    color: #000;
     cursor: pointer;
 }
 .sidebar-menu .btn-close span{
@@ -665,7 +679,7 @@ body.active{
 .sidebar-menu .nav-menu a{
     font-family: var(---font-principal);
     font-size: 20px;
-    color: var(---background-body);
+    color: var(---azul_escuro);
     padding: 10px;
     margin: 0 20px;
     white-space: nowrap;
@@ -680,7 +694,7 @@ body.active{
 .sidebar-menu.open{
     width: 250px;
     max-width: 300px;
-    z-index: 10;
+    z-index: 20;
 }
 /* .modal-sidebar.show{
     display: none;
@@ -899,13 +913,14 @@ hr{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(---azul_escuro);
+    background-color: #fff;
     width: 100%;
     height: 122px;
     row-gap: 10px;
     font-family: var(---font-principal);
-    color: var(---background-body);
+    color: var(---azul_escuro);
     font-weight: 600;
+    
 }
 
 .footer .redes{
@@ -914,7 +929,8 @@ hr{
     gap: 10px;
 }
 
-.footer .redes span img{
+
+.footer .redes span svg{
     width: 25px;
 }
 /* Fim Footer */
@@ -929,6 +945,87 @@ hr{
 
 
 
+
+/* dark */
+
+
+
+.dark, 
+.dark header{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+}
+
+.dark .cabecalho .logado .logadoBtn{
+    color: var(---background-body);
+}
+
+.dark .cabecalho .menu button{
+    color: var(---background-body);
+}
+
+.dark .cabecalho .menu ul li a{
+    color: var(---background-body);
+}
+
+.dark, .dark body{
+    background-color: var(---background-body);
+    color: #000;
+}
+
+
+.dark .footer{
+    background-color: var(---azul_escuro);
+    color: #fff;
+}
+
+.dark .nav-acessibilidade{
+    background-color: var(---azul_escuro);
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .links-menu ul li a{
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .fontes-contraste .fonts{
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .fontes-contraste .contraste{
+    color: var(---background-body);
+}
+
+.dark .nav-acessibilidade .fontes-contraste .contraste button{
+    color: var(---background-body);
+}
+
+.dark .logoDark{
+    display: flex;
+    width: 124%;
+}
+
+.dark .logo{
+    display: none;
+}
+
+
+
+.dark .sidebar-menu{
+    background-color: var(---azul_escuro);
+}
+
+.dark .sidebar-menu .nav-menu a{
+    color: var(---background-body);
+}
+
+
+.dark .cabecalho .btn-menu span{
+    color: var(---azul_bebe);
+}
+
+
+
 /* Resposividade */
 @media only screen and (max-width:552px) and (min-width:320px) {
     .cabecalho {
@@ -939,7 +1036,7 @@ hr{
         width: 100%;
         margin-top: 43px;
         gap: 30px;
-        padding: 0 30px;
+        padding: 0 30px 0 100px;
     }
     
     .nav-acessibilidade{
@@ -971,8 +1068,14 @@ hr{
     }
 
     .cabecalho .logo{
-        width: 80%;
+        width: 70%;
+        
     }
+    .cabecalho .logoDark {
+        width: 89%;
+        position: relative;
+        left: -45px;
+}
 
     .cabecalho .logado{
        display: none;

@@ -1,25 +1,26 @@
-// Menu moblie
-const menuMobileLeft = () =>{
-    const menuMobile = document.querySelector('.menu-mobile')
-    const sideBarMenu = document.querySelector('.sidebar-menu')
-    const modalSidebar = document.querySelector('.modal-sidebar')
+const menuSidebarMobile = () =>{
     const btnClose = document.querySelector('.btn-close')
-
-
+    const btnMenu = document.querySelector('.btn-menu')
+    const sidebarMenu = document.querySelector('.sidebar-menu')
+    const modalSidebar = document.querySelector('.modal-sidebar')
+    
     document.addEventListener('click', (e) =>{
         const el = e.target;
-    if(el.classList.contains('menu-mobile')){
-        sideBarMenu.classList.add('open')
+    
+    if(el.classList.contains('btn-menu')){
+        sidebarMenu.classList.add('open')
         modalSidebar.classList.add('show')
-        document.body.classList.add('hide')
-    }else if((el.classList.contains('btn-close') || (!sideBarMenu.contains(el)))){
-        sideBarMenu.classList.remove('open')
+        document.body.classList.add('block')
+    }else if(el.classList.contains('btn-close') || (!sidebarMenu.contains(el))){
+        sidebarMenu.classList.remove('open')
         modalSidebar.classList.remove('show')
-        document.body.classList.remove('hide')
+        document.body.classList.remove('block')
     }
+
     })
 }
-menuMobileLeft();
+menuSidebarMobile()
+
 
 // 
 const dropMenu = document.querySelector('.dropMenu');
@@ -37,3 +38,30 @@ document.addEventListener('click', (e) =>{
 
 
 
+// darkmode
+
+const btnchangeTheme = document.querySelector('#change-Theme');
+
+function toggleDarkMode (){
+    document.body.classList.toggle('dark');
+}
+
+function loadTheme(){
+    const darkmode = localStorage.getItem("dark")
+
+    if(darkmode){
+        toggleDarkMode();
+    }
+}
+
+loadTheme();
+
+btnchangeTheme.addEventListener("change", function (){
+    toggleDarkMode();
+
+    localStorage.removeItem("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("dark", 1);
+    }
+})
