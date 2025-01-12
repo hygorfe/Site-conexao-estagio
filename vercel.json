@@ -9,7 +9,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "../landing_page.php"
+        "dest": "/landing_page.php"
       }
     ]
   }
